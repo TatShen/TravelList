@@ -4,20 +4,46 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
+  } from "firebase/auth";
+import { SingUp } from "../components";
+  import { cloudService } from "./Cloud";
+  
+  export class AuthService {
+    constructor() {
+      this.auth = getAuth(cloudService.app);
+      this.user = null;
 
-} from 'firebase/auth'
-
-import { cloudService } from './Cloud'
-
-
-export class AuthService {
-    constructor(){
-        this.auth = getAuth(cloudService.app)
+    }
+  
+    set user(user){
+      this._user = user
     }
 
-    signUp(email, password){
-        return createUserWithEmailAndPassword(this.auth, email, password)
+    get user(){
+      return this._user;
     }
-}
 
-export const austService = new AuthService()
+    init(){
+        return new Promise((resolve,reject) => {
+          onAuthStateChanged(user,this.auth,()=>{
+            resolve(user)
+          },
+          (error) => {
+            reject(error)
+          }
+          )
+        })
+      }
+    
+
+    signUp(email, password) {
+      return createUserWithEmailAndPassword(this.auth, email, password);
+    }
+
+    signOut(){
+      return signOut(this.user)
+    }
+  }
+  
+  export const authService = new AuthService()
+  

@@ -3,7 +3,7 @@ import "../../atoms";
 import '../../malecules'
 import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
-import { authService } from "../../../Servivec/Auth";
+
 
 
 
@@ -101,8 +101,8 @@ export class FormRegister extends Component {
     <form class="registration-form">
      
         <div class="button-box">
-          <tl-button content="Войти" classname="button" type="button" class="${this.state.isNewUser ? '':'activ'}" eventtype="change-form"></tl-button>
-          <tl-button content="Регистрация" classname="button" class="${this.state.isNewUser ? 'activ':''}" eventtype="change-form"></tl-button>
+          <tl-button content="Войти" classname="form" type="button" class="${this.state.isNewUser ? '':'activ'}" eventtype="change-form"></tl-button>
+          <tl-button content="Регистрация" classname="form" class="${this.state.isNewUser ? 'activ':''}" eventtype="change-form"></tl-button>
         </div>
         
         ${
@@ -166,7 +166,9 @@ export class FormRegister extends Component {
             is-valid="${password.isValid}"
             is-touched="${password.isTouched}"
             error-message="${password.errors?.message}"></tl-input>
+
             <tl-button classname="to-enter" eventtype="submit" content="Войти"></tl-button>
+            
             <tl-span classname="google" content="Забыли пароль?"></tl-span>
             <tl-a href="#" content="Нажмите сюда!"></tl-a>
             <tl-button classname="enter-with-google" content="Войти через Google" type="submit"></tl-button>

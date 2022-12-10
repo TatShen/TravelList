@@ -11,7 +11,7 @@ export class App extends core.Component {
 
   render() {
     return `
-    <div class="container">
+    
       <tl-router> 
 
         <tl-route path="${appRoutes.home}" component="tl-homepage" title="home-page"></tl-route>
@@ -34,7 +34,7 @@ export class App extends core.Component {
          
         
       </tl-router>
-    </div>
+   
       `;
   }
 }
