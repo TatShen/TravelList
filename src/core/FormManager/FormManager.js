@@ -6,7 +6,9 @@ export class FormManager {
   }
 
   handleSubmit = (callback) => {
+   
     return (evt) => {
+   
       evt.preventDefault();
       const formData = new FormData(evt.target);
       const data = {};
@@ -14,6 +16,7 @@ export class FormManager {
         data[key] = value;
       });
       callback(data);
+      console.log('reg');
     };
   };
 

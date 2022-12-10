@@ -5,7 +5,7 @@ import {
     signOut,
     onAuthStateChanged,
   } from "firebase/auth";
-import { SingUp } from "../components";
+
   import { cloudService } from "./Cloud";
   
   export class AuthService {

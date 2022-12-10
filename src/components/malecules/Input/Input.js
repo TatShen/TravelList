@@ -1,6 +1,7 @@
 import { Component } from "../../../core";
 
 
+
 export class Input extends Component {
   constructor(){
     super()
@@ -21,6 +22,7 @@ export class Input extends Component {
     }
   
     render() {
+     
   
       const controlClassName = JSON.parse(this.props['is-valid']) ? 'is-valid' : 'is-invalid';
       const isAddClassName = JSON.parse(this.props['is-touched']) ? controlClassName : '';
@@ -33,7 +35,7 @@ export class Input extends Component {
               value="${this.props.value}"
               placeholder ="${this.props.label}"
               />
-              <div class="invalid-feedback">${this.props['error-message']}</div>
+              <div class="invalid-feedback ${this.props['error-message'] == 'undefined' ? 'hidden' : ''}">${this.props['error-message']}</div>
               </div>
      
           `;
