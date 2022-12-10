@@ -1,0 +1,280 @@
+
+.button-box{
+  position: absolute;
+  width: 343px;
+  height: 55px;
+  left: 16px;
+  top: 250px;
+  
+  tl-button{
+   margin-left: 30px;
+   margin-top: 10px;
+   .button-text{
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #eee4f8;
+    text-shadow: -0 -1px 1px #8c8d8f, 0 -1px 1px #8c8d8f, -0 1px 1px #8c8d8f,
+      0 1px 1px #8c8d8f, -1px -0 1px #8c8d8f, 1px -0 1px #8c8d8f,
+      -1px 0 1px #5e5f62, 1px 0 1px #5e5f62, -1px -1px 1px #8c8d8f,
+      1px -1px 1px #8c8d8f, -1px 1px 1px #8c8d8f, 1px 1px 1px #8c8d8f,
+      -1px -1px 1px #8c8d8f, 1px -1px 1px #8c8d8f, -1px 1px 1px #8c8d8f,
+      1px 1px 1px #8c8d8f;
+  }
+  }
+  .activ{
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  border-bottom: 4px solid #5546ae;
+  text-shadow: -0 -1px 1px #000000, 0 -1px 1px #000000, -0 1px 1px #000000,
+    0 1px 1px #000000, -1px -0 1px #000000, 1px -0 1px #000000,
+    -1px 0 1px #000000, 1px 0 1px #000000, -1px -1px 1px #000000,
+    1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000,
+    -1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000,
+    1px 1px 1px #000000;
+    .button-text{
+      font-family: "SF Pro Text";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 20px;
+      text-align: center;
+      letter-spacing: -0.5px;
+      color: #eee4f8;
+      text-shadow: -0 -1px 1px #000000, 0 -1px 1px #000000, -0 1px 1px #000000,
+    0 1px 1px #000000, -1px -0 1px #000000, 1px -0 1px #000000,
+    -1px 0 1px #000000, 1px 0 1px #000000, -1px -1px 1px #000000,
+    1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000,
+    -1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000,
+    1px 1px 1px #000000;
+    }
+  }
+}
+
+.enter{
+  .input-first {
+    position: absolute;
+    width: 343px;
+    height: 55px;
+    left: 16px;
+    top: 383px;
+    background: rgba(212, 197, 236, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border-color: transparent;
+  }
+  .input-second {
+    position: absolute;
+    left: 16px;
+    top: 468px;
+    background: rgba(212, 197, 236, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border-color: transparent;
+    position: absolute;
+    width: 343px;
+    height: 55px;
+  }
+  .to-enter {
+    position: absolute;
+    width: 279px;
+    height: 46px;
+    left: 47px;
+    top: 579px;
+    background: #5546ae;
+    opacity: 0.4;
+    border-radius: 40px;
+    border-color: transparent;
+  }
+  .google {
+    position: absolute;
+    width: 279px;
+    height: 16px;
+    left: -20px;
+    top: 625px;
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #5e5f62;
+    margin-top: 5px;
+  }
+  .google-span {
+    position: absolute;
+    width: 279px;
+    height: 16px;
+    left: -20px;
+    top: 625px;
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #5e5f62;
+  }
+  .enter-with-google {
+    position: absolute;
+    width: 265px;
+    height: 20px;
+    left: 57px;
+    top: 700px;
+  
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #5e5f62;
+    background: transparent;
+  }
+  tl-a {
+    position: absolute;
+    width: 279px;
+    height: 16px;
+    left: 100px;
+    top: 625px;
+  
+    font-family: "SF Pro Text";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    
+  
+    text-align: center;
+    letter-spacing: -0.5px;
+  
+    color: #5546ae;
+  }
+}
+
+.register{
+  .input-first {
+    position: absolute;
+    width: 343px;
+    height: 55px;
+    left: 16px;
+    top: 383px;
+    background: rgba(212, 197, 236, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border-color: transparent;
+  }
+  .input-second {
+    position: absolute;
+    left: 16px;
+    top: 468px;
+    background: rgba(212, 197, 236, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border-color: transparent;
+    position: absolute;
+    width: 343px;
+    height: 55px;
+  }
+  .input-third {
+    position: absolute;
+    left: 16px;
+    top: 553px;
+    background: rgba(212, 197, 236, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+      inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border-color: transparent;
+    position: absolute;
+    width: 343px;
+    height: 55px;
+  }
+  .to-register {
+    position: absolute;
+    width: 279px;
+    height: 46px;
+    left: 47px;
+    top: 662px;
+  
+    background: #5546ae;
+    opacity: 0.4;
+    border-radius: 40px;
+  }
+}
+::placeholder {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: -0.5px;
+  color: #5546ae;
+  padding-left: 10px;
+}
+
+
+.to-enter-text,
+.to-register-text {
+  position: absolute;
+  width: 265px;
+  height: 20px;
+  left: 0px;
+  top: 12px;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.form-logo {
+  position: absolute;
+  width: 158px;
+  height: 128px;
+  left: 101px;
+  top: 95px;
+}
+
+.let-pass-text{
+  position: absolute;
+width: 279px;
+height: 16px;
+left: 47px;
+top: 757px;
+font-family: 'SF Pro Text';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 20px;
+text-align: center;
+letter-spacing: -0.5px;
+color: #5546AE;
+}
+
+
+.invalid-feedback{
+  position: relative;
+  top:5px;
+}
+

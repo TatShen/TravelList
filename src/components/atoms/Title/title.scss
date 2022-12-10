@@ -1,0 +1,41 @@
+@font-face {
+    font-family: SF Pro Text;
+    src: url(../../../assets/fonts/SFProText/SF-Pro-Text-Bold.otf);
+}
+
+.wrapper {
+	height: 60vh;
+	display: grid;
+	place-items: center;
+  }
+  
+  .typing {
+	position: relative;
+	left: 50px;
+	width: 22ch;
+	animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 3px solid;
+	font-family: 'SF Pro Text';
+	font-size: 4em;
+	color: #5647af;
+	text-shadow: -0 -1px 1px #f1eeee, 0 -1px 1px #000000, -0 1px 1px #000000,
+	0 1px 1px #000000, -1px -0 1px #000000, 1px -0 1px #000000,
+	-1px 0 1px #f1eeee, 1px 0 1px #000000, -1px -1px 1px #000000,
+	1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000,
+	-1px -1px 1px #000000, 1px -1px 1px #f1eeee, -1px 1px 1px #000000,
+	1px 1px 1px #000000;
+  }
+  
+  @keyframes typing {
+	from {
+	  width: 0
+	}
+  }
+	  
+  @keyframes blink {
+	50% {
+	  border-color: transparent
+	}
+  }

@@ -1,0 +1,132 @@
+.description-box {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.descriptionpage {
+  height: 100vh;
+  width: 300vw;
+  display: flex;
+  position: relative;
+}
+.firstdescription {
+  width: 100vw;
+  height: 100vh;
+  background: url(../../../assets/images/adventure-g2040cb189_1280.jpg);
+  background-size: 145%;
+  background-position: 7%;
+  position: relative;
+}
+
+.seconddescription {
+  width: 100vw;
+  height: 100vh;
+  background: url(/src/assets/images/adventure-g2258c13ba_1280.jpg);
+  background-size: 145%;
+  background-position: 7%;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+.thirddescription {
+  width: 100vw;
+  height: 100vh;
+  background: url(/src/assets/images/mountain-g2e996fda6_1280.jpg);
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+}
+
+.description-span {
+  position: relative;
+  width: 90vw;
+  height: auto;
+  left: 5vh;
+  top: -38vh;
+
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.5px;
+
+  color: #ffffff;
+  text-shadow: -0 -1px 1px #000000, 0 -1px 1px #000000, -0 1px 1px #000000,
+    0 1px 1px #000000, -1px -0 1px #000000, 1px -0 1px #000000,
+    -1px 0 1px #000000, 1px 0 1px #000000, -1px -1px 1px #000000,
+    1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000,
+    -1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000,
+    1px 1px 1px #000000;
+}
+
+.description-small-span {
+  position: relative;
+  width: 85vw;
+  height: auto;
+  left: 4vh;
+  top: -36vh;
+
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.4px;
+
+  color: #ffffff;
+}
+
+.des-let-pass-text {
+  position: absolute;
+  width: 178px;
+  height: 18px;
+  left: 270px;
+  top: 757px;
+
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 45px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: #d4c5ec;
+  text-shadow: none;
+}
+
+.description-button {
+  position: absolute;
+  top: 85vh;
+  left: 12vw;
+  width: 75vw;
+  height: 5vh;
+  background: #eee4f8;
+  opacity: 0.4;
+  border-radius: 40px;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  color: #5647af;
+ 
+}
+
+.ellipse {
+  width: 100vw;
+  height: 70vh;
+  margin-top: 30vh;
+  }
