@@ -1,1 +1,1 @@
-git pages link: https://tatshen.github.io/TravelList/src/index.html 
+git pages link: https://tatshen.github.io/TravelList/index.html 
