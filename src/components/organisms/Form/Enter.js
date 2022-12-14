@@ -3,7 +3,8 @@ import "../../atoms";
 import "../../malecules";
 import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
-
+import { authService } from "../../../services/Auth";
+import { appRoutes } from "../../../constants/appRoutes";
 
 export class FormEnter extends Component {
   constructor() {
@@ -28,13 +29,14 @@ export class FormEnter extends Component {
     });
   };
 
-  registerUser = (data) => {
+  signIn = (data) => {
+   
     this.toggleisLoading();
     authService
-      .signUp(data.email, data.password, )
+      .signIn(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        this.dispatch("change-route", { target: appRoutes.home });
+        this.dispatch("change-route", { target:appRoutes.map });
       })
       .catch((error) => {
         this.setState((state) => {
@@ -76,7 +78,7 @@ export class FormEnter extends Component {
   componentDidMount() {
     this.addEventListener("click", this.validateForm);
     this.addEventListener("validate-controls", this.validate);
-    this.addEventListener("submit", this.form.handleSubmit(this.registerUser));
+    this.addEventListener("submit", this.form.handleSubmit(this.signIn));
   }
 
   render() {

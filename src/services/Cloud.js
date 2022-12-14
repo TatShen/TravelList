@@ -8,8 +8,8 @@ export class CloudService {
       projectId: "travelist-dbfdd",
       storageBucket: "travelist-dbfdd.appspot.com",
       messagingSenderId: "33511167498",
-      appId: process.env.API_ID ,
-      measurementId: "G-NHQ7M82WJ1",
+      appId: process.env.API_ID,
+      measurementId: "G-NHQ7M82WJ1"
     };
     this.app = initializeApp(this.config);
   }

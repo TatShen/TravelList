@@ -6,7 +6,7 @@ export class FormManager {
   }
 
   handleSubmit = (callback) => {
-   
+    console.log('sss');
     return (evt) => {
    
       evt.preventDefault();

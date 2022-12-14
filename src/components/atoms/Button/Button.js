@@ -4,7 +4,7 @@ export class Button extends Component{
     componentDidMount(){
         this.addEventListener('click',() => {
             this.dispatch(this.props.eventtype, { target: this.props.to })
-            
+           
         })
     }
 
@@ -15,7 +15,7 @@ export class Button extends Component{
     render(){
         const { content,classname } = this.props;
         return `
-        <button type="button" class="${classname}-button">${content}</button>
+        <button  class="${classname}-button">${content}</button>
      
         `
 

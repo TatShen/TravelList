@@ -5,6 +5,6 @@ export const appRoutes = {
     form: '/form',
     map: '/map',
     errorPage: '*',
-    user: '/user',
+    route: '/route',
     
 }

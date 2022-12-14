@@ -32,4 +32,4 @@ export class Link extends Component {
   }
 }
 
-customElements.define("oc-link", Link);
+customElements.define("tl-link", Link);

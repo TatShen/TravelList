@@ -4,7 +4,7 @@ import "../../malecules";
 import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
 import { authService } from "../../../services/Auth";
-
+import { appRoutes } from "../../../constants/appRoutes";
 export class FormRegister extends Component {
   constructor() {
     super();
@@ -29,13 +29,13 @@ export class FormRegister extends Component {
   };
 
   registerUser = (data) => {
-   console.log(reg);
+   console.log('reg');
     this.toggleisLoading();
     authService
       .signUp(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        this.dispatch("change-route", { target: appRoutes.home });
+        this.dispatch("change-route", { target:appRoutes.map });
       })
       .catch((error) => {
         this.setState((state) => {
