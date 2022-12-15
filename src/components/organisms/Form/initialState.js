@@ -1,10 +1,11 @@
 export const initialFieldsState = {
-  userName:{
+  firstName:{
     value: "",
     errors: {},
     isTouched: false,
     isValid: false,
   },
+
   email: {
     value: "",
     errors: {},
@@ -17,4 +18,20 @@ export const initialFieldsState = {
     isTouched: false,
     isValid: false,
   },
+  lastName:{
+    value: "",
+    errors: {},
+    isTouched: false,
+    isValid: false,
+  },
+  country:{
+    value: "",
+    errors: {},
+    isTouched: false,
+    isValid: false,
+  },
+  description:{
+    value: ''
+  }
+  
 };

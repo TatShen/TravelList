@@ -20,7 +20,7 @@ export class App extends core.Component {
         <tl-route path="${appRoutes.form}" component="tl-formpage" title="form"></tl-route>
 
     
-        <tl-route path="${appRoutes.map}" component="tl-mappage" title="map-page"></tl-route>
+        <tl-route path="${appRoutes.admin}" component="tl-adminpage" title="map-page"></tl-route>
 
 
         <tl-route path="${appRoutes.route}" component="tl-routepage" title="route-page"></tl-route>

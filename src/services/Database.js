@@ -10,7 +10,7 @@ import {
   getDoc,
 } from 'firebase/firestore';
 
-class DatabaseService {
+export class Database{
   constructor() {
     this._database = getFirestore(cloudService.app);
   }
@@ -41,6 +41,13 @@ class DatabaseService {
     const document = doc(this._database, collectionKey, id);
     return deleteDoc(document);
   }
+
+  static getInstance(){
+    if(!Database.instance){
+            Database.instance =  new Database()
+    } 
+    return Database.instance
+}
 }
 
-export const databaseService = new DatabaseService();
+

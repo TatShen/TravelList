@@ -35,7 +35,7 @@ export class FormRegister extends Component {
       .signUp(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        this.dispatch("change-route", { target:appRoutes.map });
+        this.dispatch("change-route", { target:appRoutes.admin });
       })
       .catch((error) => {
         this.setState((state) => {
