@@ -20,6 +20,7 @@ export class Li extends Component{
     }
 
     closeLi= () =>{
+        console.log('back');
         this.setState((state)=>{
             return{
                 ...state,
@@ -34,15 +35,23 @@ export class Li extends Component{
     }
 
     static get observedAttributes(){
-        return ['content','classname', 'type', 'poster', 'description', 'photo', 'info', 'reating'];
+        return ['title','classname',  'description', 'photo', 'info', 'reating', 'username', 'avatar', 'map'];
     };
 
     render(){
 
-        const {content, classname, type, poster, description, photo,info,reating } = this.props
+        const {title, classname,  description, photo, info, reating, map, username, avatar } = this.props
         return `
             ${this.state.isOpen ? `
-            <tl-card title="${content}" type="${type}" poster="${poster}" description="${description}" photo='${JSON.stringify(photo)}' reating='${JSON.stringify(reating)}' info="${info}"></tl-card>
+            <tl-card title="${title}" 
+             map="${map}"
+             description="${description}" 
+             photo='${JSON.stringify(photo)}' 
+             reating='${JSON.stringify(reating)}' 
+             info="${info}"
+             username="${username}">
+             avatar="${avatar}"
+             </tl-card>
             
             `:`<tl-button classname="${classname}" content="${title}" eventtype="open-li"></tl-button>`}
         

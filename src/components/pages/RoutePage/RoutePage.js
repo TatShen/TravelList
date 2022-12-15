@@ -1,5 +1,9 @@
+import { appRoutes } from "../../../constants/appRoutes";
 import { Component } from "../../../core";
-import {routesService} from '../../../services/RouteService'
+import {routeService} from '../../../services/RouteService'
+import './routepage.scss'
+
+
 
 export class RoutePage extends Component{
     constructor(){
@@ -10,7 +14,7 @@ export class RoutePage extends Component{
     }
 
     getRoutes(){
-        routesService.getAllRoutes().then(({data}) => {
+      routeService.getAllRoutes().then(({data}) => {
           this.setState((state) => {
             return {
               ...state,
@@ -27,22 +31,34 @@ export class RoutePage extends Component{
 
     render(){
         return `
+        
         <div class="alert">
+        <tl-link to="${appRoutes.map}">
+        <img class="search" src="/src/assets/icons/icon _search_.png">
+        </tl-link>
+        <tl-link to="${appRoutes.accaunt}">
+        <img class="accaunt" src="/src/assets/icons/icon _person outline_.png">
+        </tl-link> 
+       
         ${this.state.routes
         .map((item)=>{
             return`
             <tl-li
-            content="${item.title}"
-            classname="${item.classname}"
-            type="${item.type}"
-            poster='${JSON.stringify(item.poster)}'
+            classname="route"
+            title="${item.title}"
+            map="${item.map}"
             description="${item.description}"
-            photo = "${item.photo}"
+            photo = '${JSON.stringify(item.photo)}'
             info="${item.info}"
-            reating="${item.reating}"
+            reating='${JSON.stringify(item.reating)}'
+            username="${item.userName}"
+            avatar="${item.avatar}"
             >
             </tl-li>`
-        })}
+        })
+        .join('')
+      
+      }
         
         
         </div>
@@ -50,4 +66,4 @@ export class RoutePage extends Component{
         `
     }
 }
-customElements.define('tl-route-page', RoutePage)
+customElements.define('tl-routepage', RoutePage)

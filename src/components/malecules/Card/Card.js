@@ -7,7 +7,9 @@ export class Card extends Component{
     }
 
     onClick=(evt)=>{
-       if(evt.target.closest('.back')){
+        console.log('click');
+       if(evt.target.closest('.card-back')){
+        console.log('back');
         this.dispatch('back')
        }
     }
@@ -17,27 +19,27 @@ export class Card extends Component{
     }
 
     static get observedAttributes(){
-        return ['title','classname', 'type','poster', 'description', 'photo', 'info', 'reating'];
+        return ['title', 'description', 'photo', 'info', 'reating', 'username', 'avatar', 'map'];
     };
     
     render(){
-        const {title, classname, type, poster, description, info,reating } = this.props
-        const photo = JSON.parse(this.props.photo)
-        console.log(photo);
+        const {title,   description,  info, reating, map, username, avatar } = this.props
+        const photo = JSON.parse(this.props.photo) 
         return `
+      
         <div class="open-card">
-            <img src="/src/assets/icons/icon _arrow back outline_.png" type="button" class="back">
-            <h2>${title}</h2>
-            <div class="route">
-                <img src="${poster}">
+            <img src="/src/assets/icons/icon _arrow back outline_.png" type="button" class="card-back">
+            <h2 class="card-h">${title}</h2>
+            <div class="card-map">  
+
             </div>
-            <div class="description">
-                <tl-span classname="description" content="${description}"></tl-span>
+            <div class="card-description">
+                <tl-span  content="${description}"></tl-span>
             </div>
-            <div class="info">
+            <div class="card-info">
                 <tl-span classname="info" content="${info}"></tl-span>
             </div>
-            <div class="photo">
+            <div class="card-photo">
                 ${JSON.parse(photo)
                     .map((item)=>{
                         return `
@@ -47,7 +49,9 @@ export class Card extends Component{
                     .join('')
                 }
             </div>
-            <div class="reating"></div>
+            <img class="card-avatar" src="${avatar}">
+            <tl-span class="card-username" content="${username}"></tl-span>
+            <div class="card-reating"></div>
         </div>
         `
     }

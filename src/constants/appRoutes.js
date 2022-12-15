@@ -6,5 +6,6 @@ export const appRoutes = {
     map: '/map',
     errorPage: '*',
     route: '/route',
+    accaunt:'/accaunt'
     
 }

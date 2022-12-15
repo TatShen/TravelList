@@ -5,13 +5,13 @@ const generateRotes = (qty) => {
         id : 1,
         title:'Маршрут',
         reating: Math.ceil(Math.random(index) * 5),
-       
-        comments: [
-            {
-                title : 'Comment 1',
-                comment: 'lorem'
-            }
-        ],
+        map: '',
+        photo:[],
+        description:'werrdgdsghdfjdfkk  gjbflgjbhf  gfj gf',
+        info:'5 houre',
+        userName:'TatShen',
+        avatar:''
+        
     }))
 }
 
