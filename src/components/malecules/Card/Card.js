@@ -1,3 +1,4 @@
+import { appEvents } from "../../../constants/appEvents";
 import { Component } from "../../../core";
 import '../../atoms'
 
@@ -10,7 +11,7 @@ export class Card extends Component{
         console.log('click');
        if(evt.target.closest('.card-back')){
         console.log('back');
-        this.dispatch('back')
+        this.dispatch(appEvents.back)
        }
     }
 

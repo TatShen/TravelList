@@ -5,7 +5,8 @@ import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
 import { authService } from "../../../services/Auth";
 import { appRoutes } from "../../../constants/appRoutes";
-import { Result } from "postcss";
+import { eventBus, EventBus } from "../../../core/EventBus/EventBus";
+import { appEvents } from "../../../constants/appEvents";
 
 export class FormEnter extends Component {
   constructor() {
@@ -38,10 +39,12 @@ export class FormEnter extends Component {
       .then((user) => {
         authService.user = user;
         authService.init().then((uid) => {
-          this.dispatch('send-userInfo', {userUid:uid})
-        })
+          console.log(uid);
+          eventBus.emit(appEvents.sendInfo, {userUid:uid})
+          console.log('ccc');
+         })
        
-        this.dispatch("change-route", { target:appRoutes.admin });
+        this.dispatch(appEvents.changeRoute, { target:appRoutes.accaunt });
       })
       .catch((error) => {
         this.setState((state) => {
@@ -82,7 +85,7 @@ export class FormEnter extends Component {
 
   componentDidMount() {
     this.addEventListener("click", this.validateForm);
-    this.addEventListener("validate-controls", this.validate);
+    this.addEventListener(appEvents.validateControls, this.validate);
     this.addEventListener("submit", this.form.handleSubmit(this.signIn));
   }
 

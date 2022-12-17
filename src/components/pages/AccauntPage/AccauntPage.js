@@ -1,10 +1,11 @@
-import {Component} from '../../../core'
-import '../../../core'
-import { appRoutes } from '../../../constants/appRoutes';
+import {Component, eventBus} from '../../../core'
+
 import './accaunt.scss'
 import '../../malecules'
 import '../../atoms'
 import {usersService} from '../../../services/UserService.js'
+import { appEvents } from '../../../constants/appEvents';
+
 
 
 export class AccauntPage extends Component{
@@ -13,11 +14,20 @@ export class AccauntPage extends Component{
         this.state = {
           isLoading: false,
           user: null,
+          uid:null
         };
       }
 
-      static get observedAttributes() {
-        return ["id"];
+
+      getUs = (evt) => {
+        console.log('getuser');
+        console.log(evt.detail);
+        this.setState((state) => {
+          return {
+            ...state,
+            uid: evt.detail.userUid
+          }
+        })
       }
     
       toggleIsLoading() {
@@ -32,12 +42,12 @@ export class AccauntPage extends Component{
       getUser() {
         this.toggleIsLoading();
         usersService
-          .getUser(this.props.id)
+          .getUsers()
           .then((data) => {
             this.setState((state) => {
               return {
                 ...state,
-                movie: data,
+                user: data.filter((item)=>item.uid === this.state.uid)
               };
             });
           })
@@ -47,25 +57,23 @@ export class AccauntPage extends Component{
       }
     
       componentDidMount() {
+        this.addEventListener(appEvents.sendUid, this.getUs)
         this.getUser();
       }
 
     render(){
+      console.log(this.state.uid);
+      console.log(this.state.user);
         return`
         <tl-nav></tl-nav>
+       
         <div class="accaunt-avatar" >
             <img src="${this.state.avatar}">
         </div>
         
-        <tl-span content="#"></tl-span>
-        <tl-button ></tl-button>
-        <tl-button></tl-button>
-        <tl-button></tl-button>
-        <tl-link>
-            <div class="edit">
-                <img src="/src/assets/icons/icon _edit_.png">
-            </div>
-        </tl-link>
+        <tl-span content="${this.state.user}"></tl-span>
+     
+        
         `
     }
 } 

@@ -4,6 +4,8 @@ import { storageService } from "../../../services/Storage";
 import {authService} from '../../../services/Auth'
 import { appRoutes } from "../../../constants/appRoutes";
 import{usersService} from "../../../services/UserService"
+import { appEvents } from "../../../constants/appEvents";
+import { eventBus } from "../../../core/EventBus/EventBus";
 
 
 
@@ -30,18 +32,18 @@ export class AccauntForm extends Component {
 
   
   onClick = (evt) => {
-    if(evt.target.closest('.file')) {
+      if(evt.target.closest('.file')) {
         const uploadFile = document.querySelector('.upload-file');
         uploadFile.click()
     }
   }
  
   getUid = (evt) => {
-    console.log('send');
+    console.log(evt.detail);
     this.setState((state) => {
       return {
         ...state,
-        uid: evt.detail.uid
+        uid: evt.detail.userUid
       }
     })
   }
@@ -54,31 +56,36 @@ export class AccauntForm extends Component {
             storageService.getDownloadURL(snapshot.ref).then((url) => {
               usersService.creatUser( {
               ...data,
-              avatar : url
+              avatar : url,
+              uid: this.state.uid
             })  
             })
-            this.dispatch('change-route', {target: appRoutes.accaunt})
+           this.dispatch(appEvents.sendUid, {userUid:this.state.uid})
+            console.log('send');
+            this.dispatch(appEvents.changeRoute, {target: appRoutes.accaunt})
           })
           .catch((error) => {
             console.log(error);
           })
           .finally(()=>{
-            console.log('ofof');
+            this.toggleIsLoading();
           })
       }
   
 
       
   componentDidMount() {
-    this.form.init(this.querySelector('.send-data'), {})
-    this.addEventListener('submit', this.form.handleSubmit(this.createUser))
+    eventBus.on(appEvents.sendInfo, this.getUid)
     this.onload = () => {
       this.addEventListener('click', this.onClick)
     } 
-    window.addEventListener('send-userInfo', this.getUid)
+    this.form.init(this.querySelector('.send-data'), {})
+    this.addEventListener('submit', this.form.handleSubmit(this.createUser))
+   
+    
 
     if (!authService.user) {
-            this.dispatch('change-route', {
+            this.dispatch(appEvents.changeRoute, {
         target: appRoutes[this.props.path ?? "signUp"],
       });
     }
@@ -90,7 +97,7 @@ export class AccauntForm extends Component {
     return `
         <form>
           <div class="file">
-              <input type="file"class="upload-file" hidden name="avatar">  </input>
+              <input type="file" class="upload-file" hidden name="avatar">  </input>
               <img class="uplouad" src="/src/assets/icons/x31 1 DSLR Camera.png">
           </div>
           <input placeholder="Введите имя" class="input first-name" type="text" name="first-name">

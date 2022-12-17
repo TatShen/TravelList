@@ -1,3 +1,4 @@
+import { appEvents } from "../../../constants/appEvents";
 import { Component } from "../../../core";
 import '../../atoms'
 import '../../malecules'
@@ -30,8 +31,8 @@ export class Li extends Component{
     }
 
     componentDidMount(){
-        this.addEventListener('open-li', this.openLi)
-        this.addEventListener('back', this.closeLi)
+        this.addEventListener(appEvents.openLi, this.openLi)
+        this.addEventListener(appEvents.back, this.closeLi)
     }
 
     static get observedAttributes(){

@@ -1,3 +1,4 @@
+import { appEvents } from "../../../constants/appEvents";
 import { Component } from "../../../core";
 import '../../malecules'
 
@@ -10,7 +11,7 @@ export class Slider extends Component{
       }
     
       componentDidMount() {
-        window.addEventListener("next", (this.onNext));
+        window.addEventListener(appEvents.next, (this.onNext));
       }
     
       onNext = () => {

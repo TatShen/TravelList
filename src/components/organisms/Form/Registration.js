@@ -5,6 +5,8 @@ import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
 import { authService } from "../../../services/Auth";
 import { appRoutes } from "../../../constants/appRoutes";
+import { appEvents } from "../../../constants/appEvents";
+import { eventBus } from "../../../core";
 export class FormRegister extends Component {
   constructor() {
     super();
@@ -35,7 +37,12 @@ export class FormRegister extends Component {
       .signUp(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        this.dispatch("change-route", { target:appRoutes.admin });
+        authService.init().then((uid) => {
+          console.log(uid);
+          eventBus.emit(appEvents.sendInfo, {userUid:uid})
+          console.log('ccc');
+         })
+        this.dispatch(appEvents.changeRoute, { target:appRoutes.admin });
       })
       .catch((error) => {
         this.setState((state) => {
@@ -77,7 +84,7 @@ export class FormRegister extends Component {
 
   componentDidMount() {
     this.addEventListener("click", this.validateForm);
-    this.addEventListener("validate-controls", this.validate);
+    this.addEventListener(appEvents.validateControls, this.validate);
     window.addEventListener("submit", this.form.handleSubmit(this.registerUser));
   }
 

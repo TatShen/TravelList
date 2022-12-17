@@ -1,3 +1,4 @@
+import { appEvents } from "../../constants/appEvents";
 import { Component } from "../Component";
 
 export class Link extends Component {
@@ -12,7 +13,7 @@ export class Link extends Component {
 
   onClick = (evt) => {
     evt.preventDefault();
-    this.dispatch("change-route", { target: this.props.to });
+    this.dispatch(appEvents.changeRoute, { target: this.props.to });
   };
 
   componentDidMount() {

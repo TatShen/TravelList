@@ -6,6 +6,8 @@ import '../../organisms'
 import './form.scss'
 import { FormManager } from "../../../core";
 import { authService } from "../../../services/Auth";
+import { appEvents } from "../../../constants/appEvents";
+import { eventBus } from "../../../core/EventBus/EventBus";
 
 
 
@@ -33,7 +35,7 @@ export class FormPage extends Component{
 
 
    componentDidMount(){
-        this.addEventListener('change-form', this.changeForm);
+       this.addEventListener('change-form', this.changeForm);
         
    }
 
