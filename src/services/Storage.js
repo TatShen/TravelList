@@ -7,9 +7,9 @@ class Storage {
   }
 
 
-  uploadAvatar(file) {
-    const avatarRef = ref(this.storage, `/avatars/${file.name}`);
-    return uploadBytes(avatarRef, file);
+  uploadPhoto(file) {
+    const photoRef = ref(this.storage, `/photos/${file.name}`);
+    return uploadBytes(photoRef, file);
   }
 
   getDownloadURL(ref) {

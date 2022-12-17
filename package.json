@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sashaklimenok/mentoring-webpack-starter.git"
+    "url": "git+https://https://github.com/TatShen/TravelList-starter.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sashaklimenok/mentoring-webpack-starter/issues"
+    "url": "https://https://github.com/TatShen/TravelList-starter/issues"
   },
-  "homepage": "https://github.com/sashaklimenok/mentoring-webpack-starter#readme",
+  "homepage": "https://https://github.com/TatShen/TravelList-starter#readme",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
@@ -48,6 +48,7 @@
     "bootstrap": "^5.2.3",
     "dotenv-webpack": "^8.0.1",
     "firebase": "^9.15.0",
+    "firebase-admin": "^11.4.0",
     "google": "^2.1.0",
     "googlemap": "^1.0.4",
     "googlemaps": "^1.12.0",

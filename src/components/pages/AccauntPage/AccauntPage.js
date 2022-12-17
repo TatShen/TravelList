@@ -4,15 +4,51 @@ import { appRoutes } from '../../../constants/appRoutes';
 import './accaunt.scss'
 import '../../malecules'
 import '../../atoms'
+import {usersService} from '../../../services/UserService.js'
+
 
 export class AccauntPage extends Component{
-    constructor(){
+    constructor() {
         super();
-        this.state={
-            avatar:''
-        }
+        this.state = {
+          isLoading: false,
+          user: null,
+        };
+      }
 
-    }
+      static get observedAttributes() {
+        return ["id"];
+      }
+    
+      toggleIsLoading() {
+        this.setState((state) => {
+          return {
+            ...state,
+            isLoading: !state.isLoading,
+          };
+        });
+      }
+    
+      getUser() {
+        this.toggleIsLoading();
+        usersService
+          .getUser(this.props.id)
+          .then((data) => {
+            this.setState((state) => {
+              return {
+                ...state,
+                movie: data,
+              };
+            });
+          })
+          .finally(() => {
+            this.toggleIsLoading();
+          });
+      }
+    
+      componentDidMount() {
+        this.getUser();
+      }
 
     render(){
         return`

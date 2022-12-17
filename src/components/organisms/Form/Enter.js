@@ -5,6 +5,7 @@ import { initialFieldsState } from "./initialState";
 import { Validator, FormManager } from "../../../core";
 import { authService } from "../../../services/Auth";
 import { appRoutes } from "../../../constants/appRoutes";
+import { Result } from "postcss";
 
 export class FormEnter extends Component {
   constructor() {
@@ -36,6 +37,10 @@ export class FormEnter extends Component {
       .signIn(data.email, data.password)
       .then((user) => {
         authService.user = user;
+        authService.init().then((uid) => {
+          this.dispatch('send-userInfo', {userUid:uid})
+        })
+       
         this.dispatch("change-route", { target:appRoutes.admin });
       })
       .catch((error) => {

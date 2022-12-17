@@ -27,7 +27,7 @@ import {
         onAuthStateChanged(
           this.auth,
           (user) => {
-            resolve(user);
+            resolve(user.uid);
           },
           (error) => {
             reject(error);
@@ -47,6 +47,8 @@ import {
     signIn(email, password) {
       return signInWithEmailAndPassword(this.auth, email, password);
     }
+
+    
   }
   
   export const authService = new AuthService();

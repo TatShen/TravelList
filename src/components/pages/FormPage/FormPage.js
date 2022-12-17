@@ -43,8 +43,8 @@ export class FormPage extends Component{
        
         <img class="form-logo" src="/src/assets/svg/hot-air-balloon-svgrepo-com.svg">
         <div class="button-box">
-        <tl-button content="Войти" classname="form" type="button" class="${this.state.isNewUser ? '':'activ'} type="button"" ></tl-button>
-        <tl-button content="Регистрация" classname="form" class="${this.state.isNewUser ? 'activ':''}" ></tl-button>
+        <tl-button content="Войти" classname="form" type="button" class="${this.state.isNewUser ? '':'activ'} type="button" eventtype="change-form" ></tl-button>
+        <tl-button content="Регистрация" classname="form" class="${this.state.isNewUser ? 'activ':''}"  eventtype="change-form"></tl-button>
       </div>
         
         ${

@@ -20,6 +20,10 @@ export class UserService{
         return this.database.update('users',body,id)
     }
 
+    getUser(id){
+        return this.database.getDocument('users', id)
+    }
+
 }
 
-export const userService = new UserService();
+export const usersService = new UserService();
