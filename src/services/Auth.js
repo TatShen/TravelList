@@ -27,7 +27,7 @@ import {
         onAuthStateChanged(
           this.auth,
           (user) => {
-            resolve(user.uid);
+            resolve(user);
           },
           (error) => {
             reject(error);

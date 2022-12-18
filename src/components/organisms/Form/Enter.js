@@ -38,9 +38,9 @@ export class FormEnter extends Component {
       .signIn(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        authService.init().then((uid) => {
-          console.log(uid);
-          eventBus.emit(appEvents.sendInfo, {userUid:uid})
+        authService.init().then((user) => {
+          console.log(user.uid);
+          eventBus.emit(appEvents.sendInfo, {userUid:user.uid})
           console.log('ccc');
          })
        

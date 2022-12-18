@@ -5,7 +5,7 @@ import {authService} from '../../../services/Auth'
 import { appRoutes } from "../../../constants/appRoutes";
 import{usersService} from "../../../services/UserService"
 import { appEvents } from "../../../constants/appEvents";
-import { eventBus } from "../../../core/EventBus/EventBus";
+
 
 
 
@@ -15,7 +15,7 @@ export class AccauntForm extends Component {
     
     this.state = {
         isLoading: false,
-        uid: null
+        uid: ''
     };
     this.form = new FormManager()
   }
@@ -38,30 +38,33 @@ export class AccauntForm extends Component {
     }
   }
  
-  getUid = (evt) => {
-    console.log(evt.detail);
-    this.setState((state) => {
-      return {
-        ...state,
-        uid: evt.detail.userUid
-      }
+  getUid = () => {
+    authService.init().then((user)=>{
+      console.log(user);
+      this.setState((state)=>{
+        return{
+          ...state,
+          uid:user.uid
+        }
+      })
     })
-  }
+      }
+   
 
     createUser = (data) => {
         this.toggleIsLoading();
-        console.log(data);
+      
         storageService.uploadPhoto(data.avatar)
           .then((snapshot) => {
             storageService.getDownloadURL(snapshot.ref).then((url) => {
               usersService.creatUser( {
               ...data,
               avatar : url,
-              uid: this.state.uid
+              
             })  
             })
-           this.dispatch(appEvents.sendUid, {userUid:this.state.uid})
-            console.log('send');
+            console.log(data);
+           
             this.dispatch(appEvents.changeRoute, {target: appRoutes.accaunt})
           })
           .catch((error) => {
@@ -75,13 +78,13 @@ export class AccauntForm extends Component {
 
       
   componentDidMount() {
-    eventBus.on(appEvents.sendInfo, this.getUid)
-    this.onload = () => {
+    this.getUid()
+    window.onload = () => {
       this.addEventListener('click', this.onClick)
     } 
     this.form.init(this.querySelector('.send-data'), {})
     this.addEventListener('submit', this.form.handleSubmit(this.createUser))
-   
+    
     
 
     if (!authService.user) {
@@ -100,9 +103,10 @@ export class AccauntForm extends Component {
               <input type="file" class="upload-file" hidden name="avatar">  </input>
               <img class="uplouad" src="/src/assets/icons/x31 1 DSLR Camera.png">
           </div>
-          <input placeholder="Введите имя" class="input first-name" type="text" name="first-name">
-          <input placeholder="Введите фамилия" class="input last-name" type="text" name="last-name">
+          <input placeholder="Введите имя" class="input firstname" type="text" name="firstname">
+          <input placeholder="Введите фамилия" class="input lastname" type="text" name="lastname">
           <input placeholder="Введите страну проживания" class="input country" type="text" name="country">
+          <input placeholder="Введите страну проживания" class="input country" type="text" name="uid" value="${this.state.uid}">
           <textarea placeholder="Введите информацию о себе" class="textarea country" type="text" name="description"></textarea>
           
           <tl-button type="submit" content="Save" classname="save" eventtype="submit">

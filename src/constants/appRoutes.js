@@ -7,5 +7,7 @@ export const appRoutes = {
     errorPage: '*',
     route: '/route',
     accaunt:'/accaunt',
-    admin:'/admin'
+    admin:'/admin',
+    addroute:'/addroute'
+    
 }

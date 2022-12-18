@@ -1,13 +1,29 @@
-import {ROUTES} from '../MOCK/routes'
+import {Database} from './Database.js'
 
-class RouteService {
+export class RoutesService{
+    constructor(){
+        this.database = Database.getInstance()
+    };
 
+    creatRoute(body){
+       return this.database.create('routes', body)
+    };
 
+    getRoutes(){
+        return this.database.read('routes')
+    };
 
-    getAllRoutes(){
-        return Promise.resolve({data: ROUTES})
+    deleteRoutes(id){
+        return this.database.delete('routes', id)
+    }
+    updateRoute(body,id){
+        return this.database.update('routes',body,id)
+    }
+
+    getRoute(id){
+        return this.database.getDocument('routes', id)
     }
 
 }
 
-export const routeService = new RouteService()
+export const routesService = new RoutesService();

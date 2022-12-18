@@ -1,6 +1,6 @@
 import { appRoutes } from "../../../constants/appRoutes";
 import { Component } from "../../../core";
-import {routeService} from '../../../services/RouteService'
+import {routesService} from '../../../services/RouteService'
 import './routepage.scss'
 
 
