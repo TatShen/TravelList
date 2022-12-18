@@ -6,6 +6,7 @@ import '../../atoms'
 import {usersService} from '../../../services/UserService.js'
 import { appRoutes } from '../../../constants/appRoutes'
 import { authService } from '../../../services/Auth'
+import {routesService} from '../../../services/RouteService'
 import './accaunt.scss'
 
 
@@ -17,7 +18,7 @@ export class AccauntPage extends Component{
           isLoading: false,
           user: null,
           uid:'',
-          isMyProfil:false
+          routes:null
         };
       }
 
@@ -63,14 +64,32 @@ export class AccauntPage extends Component{
           });
       }
     
+      getRoutes = ()=> {
+        routesService.getRoutes().then((data)=>{
+          this.setState((state)=>{
+            return{
+              ...state,
+              routes: data.filter((item)=>item.uid === this.state.uid)
+            }
+          })
+          eventBus.emit('send-routes', {routes:this.state.routes})
+          console.log(this.state.routes);
+        }) .finally(() => {
+          this.toggleIsLoading();
+        });
+
+      }
+
       componentDidMount() {
         this.getUid()
         this.getUser();
+        this.getRoutes()
       }
 
     render(){
       console.log(this.state.uid);
       console.log(this.state.user);
+      console.log(this.state.routes);
        
         if (this.state.user !== null){
           return`
@@ -94,8 +113,8 @@ export class AccauntPage extends Component{
             <tl-span class="description" content="${item.description}"></tl-span>
            
             
-              <tl-link>
-                <tl-button content="Мои маршруты" classname="my-routes"></tl-button>
+              <tl-link to="${appRoutes.route}">
+                <tl-button content="Мои маршруты" classname="my-routes" items='${JSON.stringify(this.state.routes)}'></tl-button>
               </tl-link>
               
               <tl-link>

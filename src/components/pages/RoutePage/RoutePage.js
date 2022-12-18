@@ -1,5 +1,5 @@
 import { appRoutes } from "../../../constants/appRoutes";
-import { Component } from "../../../core";
+import { Component, eventBus } from "../../../core";
 import {routesService} from '../../../services/RouteService'
 import './routepage.scss'
 
@@ -13,19 +13,19 @@ export class RoutePage extends Component{
         }
     }
 
-    getRoutes(){
-      routeService.getAllRoutes().then(({data}) => {
-          this.setState((state) => {
-            return {
-              ...state,
-              routes: data,
-            };
-          });
-        });
+    getRoutes = (evt) => {
+      console.log('evt.detail');
+       this.setState((state)=>{
+        return{
+          ...state,
+          
+        }
+       })
       };
 
       componentDidMount(){
-        this.getRoutes()
+        
+        eventBus.on('send-routes', this.getRoutes)
       }
 
 

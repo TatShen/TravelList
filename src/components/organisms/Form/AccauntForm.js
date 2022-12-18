@@ -9,13 +9,15 @@ import { appEvents } from "../../../constants/appEvents";
 
 
 
+
 export class AccauntForm extends Component {
   constructor() {
     super();
     
     this.state = {
         isLoading: false,
-        uid: ''
+        uid: '',
+       
     };
     this.form = new FormManager()
   }
@@ -76,6 +78,8 @@ export class AccauntForm extends Component {
       }
   
 
+     
+
       
   componentDidMount() {
     this.getUid()
@@ -110,8 +114,9 @@ export class AccauntForm extends Component {
           <textarea placeholder="Введите информацию о себе" class="textarea country" type="text" name="description"></textarea>
           
           <tl-button type="submit" content="Save" classname="save" eventtype="submit">
-        </form>
+       
         </tl-button>
+        </form>
         `;
   }
 }

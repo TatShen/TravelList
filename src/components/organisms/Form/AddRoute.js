@@ -1,10 +1,12 @@
 
-import { Component } from "../../../core";
+import { Component, eventBus } from "../../../core";
 import { authService } from "../../../services/Auth";
 import { FormManager } from "../../../core";
 import { usersService } from "../../../services/UserService";
 import {routesService} from '../../../services/RouteService'
 import { storageService} from "../../../services/Storage";
+import { appEvents } from "../../../constants/appEvents";
+import { appRoutes } from "../../../constants/appRoutes";
 
 
 export class AddRoute extends Component{
@@ -52,6 +54,8 @@ export class AddRoute extends Component{
               };
             
             });
+            eventBus.emit(appEvents.changeRoute, appRoutes.accaunt)
+
           })
           .finally(() => {
             this.toggleIsLoading();
@@ -113,8 +117,8 @@ export class AddRoute extends Component{
         <form class="add-route">
         <input placeholder="Введите название маршрута" class="add-input" type="text" name="routename">
         <div class="map"></div>
-        <textarea class="add-input" placeholder="Введите описание маршрута" ></textarea>>
-        <input placeholder="Cколько времени занимает маршрут?" class="add-input" type="text" name="routename">
+        <textarea class="add-input" placeholder="Введите описание маршрута" name="description"></textarea>>
+        <input placeholder="Cколько времени занимает маршрут?" class="add-input" type="text" name="time">
         <div class="upload-file">
             <input type="file" class="upload-file" hidden name="avatar">  </input>
             <img src="/src/assets/icons/addfoto.png" class="addphoto">
@@ -122,6 +126,8 @@ export class AddRoute extends Component{
         ${this.state.user.map((item)=>{
             return `
             <input  class="add-input" type="text" name="travelname" value="${item.firstname} ${item.lastname}"  hidden>
+            </input>
+            <input  class="add-input" type="text" name="uid" value="${item.uid}"  hidden>
             </input>
             <input name="avatar" value="${item.avatar}" class="add-input" hidden></input>
             
