@@ -26,12 +26,13 @@ export class Card extends Component{
     render(){
         const {title,   description,  info, reating, map, username, avatar } = this.props
         const photo = JSON.parse(this.props.photo) 
+        console.log(this.props.avatar);
         return `
       
         <div class="open-card">
             <img src="/src/assets/icons/icon _arrow back outline_.png" type="button" class="card-back">
             <h2 class="card-h">${title}</h2>
-            <div class="card-map">  
+           
 
             </div>
             <div class="card-description">
@@ -41,7 +42,7 @@ export class Card extends Component{
                 <tl-span classname="info" content="${info}"></tl-span>
             </div>
            
-            <img class="card-avatar" src="${avatar}">
+            <div class="card-avatar" style="background: url(${avatar}); background-size:cover; background-position:50%" ></div>
             <tl-span class="card-username" content="${username}"></tl-span>
             
         </div>

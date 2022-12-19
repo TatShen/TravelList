@@ -42,6 +42,7 @@ export class Li extends Component{
     render(){
 
         const {title, classname,  description, photo, info, reating, map, username, avatar } = this.props
+        console.log(avatar);
         return `
             ${this.state.isOpen ? `
             <tl-card title="${title}" 
@@ -50,8 +51,8 @@ export class Li extends Component{
              photo='${JSON.stringify(photo)}' 
              reating='${JSON.stringify(reating)}' 
              info="${info}"
-             username="${username}">
-             avatar="${avatar}"
+             username="${username}"
+             avatar="${avatar}">
              </tl-card>
             
             `:`<tl-button classname="${classname}" content="${title}" eventtype="open-li"></tl-button>`}

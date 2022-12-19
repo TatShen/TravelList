@@ -11,6 +11,11 @@ class Storage {
     const photoRef = ref(this.storage, `/photos/${file.name}`);
     return uploadBytes(photoRef, file);
   }
+  
+  uploadPhotoOnRoute(file) {
+    const photosRef = ref(this.storage, `/photo_on_route/${file.name}`);
+    return uploadBytes(photosRef, file);
+  }
 
   getDownloadURL(ref) {
     return getDownloadURL(ref);

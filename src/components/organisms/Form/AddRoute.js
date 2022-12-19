@@ -63,23 +63,24 @@ export class AddRoute extends Component{
       }
 
       onClick = (evt) => {
-        if(evt.target.closest('.file')) {
-          const uploadFile = document.querySelector('.upload-file');
-          uploadFile.click()
+        console.log('click');
+        if(evt.target.closest('.addphoto')) {
+          console.log('add');
+          const addPhoto = document.querySelector('.add-photo');
+          addPhoto.click()
       }
     }
 
       createRoute = (data) => {
         this.toggleIsLoading();
       
-        storageService.uploadPhoto(data.avatar)
+        storageService.uploadPhotoOnRoute(data.photo)
           .then((snapshot) => {
             storageService.getDownloadURL(snapshot.ref).then((url) => {
               routesService.creatRoute( {
               ...data,
               photos : url,
-              
-            })  
+              })  
             })
             console.log(data);
            
@@ -115,14 +116,20 @@ export class AddRoute extends Component{
        if (this.state.user !== null){
         return`
         <form class="add-route">
+
         <input placeholder="Введите название маршрута" class="add-input" type="text" name="title">
-        <div class="map"></div>
-        <textarea class="add-input" placeholder="Введите описание маршрута" name="description"></textarea>>
+        
+        <input placeholder="Посященные города" class="add-input" type="text" name="map">
+
+        <textarea class="add-input" placeholder="Введите описание маршрута" name="description"></textarea>
+
         <input placeholder="Cколько времени занимает маршрут?" class="add-input" type="text" name="time">
+
         <div class="upload-file">
-            <input type="file" class="upload-file" hidden name="avatar">  </input>
+            <input type="file" class="add-photo" hidden name="photo">  </input>
             <img src="/src/assets/icons/addfoto.png" class="addphoto">
         </div>
+        
         ${this.state.user.map((item)=>{
             return `
             <input  class="add-input" type="text" name="travelname" value="${item.firstname} ${item.lastname}"  hidden>

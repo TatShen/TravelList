@@ -63,7 +63,7 @@ export class RoutePage extends Component{
 
 
     render(){
-
+      
       console.log(this.state.routes);
         return `
         
@@ -73,6 +73,7 @@ export class RoutePage extends Component{
        
         ${this.state.routes
         .map((item)=>{
+          console.log(item.avatar);
             return`
             <tl-li
             classname="route"
