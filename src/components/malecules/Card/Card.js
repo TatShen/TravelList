@@ -40,22 +40,25 @@ export class Card extends Component{
             <div class="card-info">
                 <tl-span classname="info" content="${info}"></tl-span>
             </div>
-            <div class="card-photo">
-                ${JSON.parse(photo)
-                    .map((item)=>{
-                        return `
-                        <img src="${item.src}"class="card-img">
-                        `
-                    })
-                    .join('')
-                }
-            </div>
+           
             <img class="card-avatar" src="${avatar}">
             <tl-span class="card-username" content="${username}"></tl-span>
-            <div class="card-reating"></div>
+            
         </div>
         `
     }
 }
 
 customElements.define('tl-card', Card)
+
+
+{/* <div class="card-photo">
+${JSON.parse(photo)
+    .map((item)=>{
+        return `
+        <img src="${item.src}"class="card-img">
+        `
+    })
+    .join('')
+}
+</div> */}

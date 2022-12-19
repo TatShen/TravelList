@@ -2,6 +2,7 @@ import { appRoutes } from "../../../constants/appRoutes";
 import { Component, eventBus } from "../../../core";
 import {routesService} from '../../../services/RouteService'
 import './routepage.scss'
+import { authService} from "../../../services/Auth";
 
 
 
@@ -9,36 +10,66 @@ export class RoutePage extends Component{
     constructor(){
         super();
         this.state={
-            routes : []
+            routes : [],
+            uid: null,
+            isOpenCard: false
         }
     }
 
-    getRoutes = (evt) => {
-      console.log('evt.detail');
-       this.setState((state)=>{
-        return{
+    
+    toggleIsLoading() {
+      this.setState((state) => {
+        return {
           ...state,
-          
-        }
-       })
-      };
+          isLoading: !state.isLoading,
+        };
+      });
+    }
+
+    
+    getUid = () => {
+      authService.init().then((user)=>{
+        console.log(user.uid);
+        this.setState((state)=>{
+          return{
+            ...state,
+            uid:user.uid
+          }
+        })
+      })
+    }
+
+    getRoutes = ()=> {
+      routesService.getRoutes().then((data)=>{
+        this.setState((state)=>{
+          return{
+            ...state,
+            routes: data.filter((item)=>item.uid === this.state.uid)
+          }
+        })
+        eventBus.emit('send-routes', {routes:this.state.routes})
+       
+      }) 
+      .finally(() => {
+        this.toggleIsLoading();
+      });
+
+    }
 
       componentDidMount(){
-        
-        eventBus.on('send-routes', this.getRoutes)
+        this.getUid()
+        this.getRoutes()
       }
 
 
     render(){
+
+      console.log(this.state.routes);
         return `
         
         <div class="alert">
-        <tl-link to="${appRoutes.map}">
-        <img class="search" src="/src/assets/icons/icon _search_.png">
-        </tl-link>
-        <tl-link to="${appRoutes.accaunt}">
-        <img class="accaunt" src="/src/assets/icons/icon _person outline_.png">
-        </tl-link> 
+        <tl-nav></tl-nav>
+        
        
         ${this.state.routes
         .map((item)=>{
@@ -48,10 +79,10 @@ export class RoutePage extends Component{
             title="${item.title}"
             map="${item.map}"
             description="${item.description}"
-            photo = '${JSON.stringify(item.photo)}'
-            info="${item.info}"
+            photo = '${JSON.stringify(item.photos)}'
+            info="${item.time}"
             reating='${JSON.stringify(item.reating)}'
-            username="${item.userName}"
+            username="${item.travelname}"
             avatar="${item.avatar}"
             >
             </tl-li>`

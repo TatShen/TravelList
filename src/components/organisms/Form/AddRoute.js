@@ -115,7 +115,7 @@ export class AddRoute extends Component{
        if (this.state.user !== null){
         return`
         <form class="add-route">
-        <input placeholder="Введите название маршрута" class="add-input" type="text" name="routename">
+        <input placeholder="Введите название маршрута" class="add-input" type="text" name="title">
         <div class="map"></div>
         <textarea class="add-input" placeholder="Введите описание маршрута" name="description"></textarea>>
         <input placeholder="Cколько времени занимает маршрут?" class="add-input" type="text" name="time">

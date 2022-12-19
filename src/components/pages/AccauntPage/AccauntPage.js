@@ -18,8 +18,10 @@ export class AccauntPage extends Component{
           isLoading: false,
           user: null,
           uid:'',
-          routes:null
+          routes:null,
+          isOpenRoutes:false
         };
+        
       }
 
 
@@ -64,37 +66,25 @@ export class AccauntPage extends Component{
           });
       }
     
-      getRoutes = ()=> {
-        routesService.getRoutes().then((data)=>{
-          this.setState((state)=>{
-            return{
-              ...state,
-              routes: data.filter((item)=>item.uid === this.state.uid)
-            }
-          })
-          eventBus.emit('send-routes', {routes:this.state.routes})
-          console.log(this.state.routes);
-        }) .finally(() => {
-          this.toggleIsLoading();
-        });
-
-      }
+     
 
       componentDidMount() {
         this.getUid()
         this.getUser();
-        this.getRoutes()
+   
       }
 
     render(){
       console.log(this.state.uid);
       console.log(this.state.user);
-      console.log(this.state.routes);
+      
        
         if (this.state.user !== null){
           return`
       
         <tl-nav></tl-nav>
+        
+
         
         ${this.state.user.map((item)=>{
           console.log(item.id);
