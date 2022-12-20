@@ -8,6 +8,7 @@ export const appRoutes = {
     route: '/route',
     accaunt:'/accaunt',
     admin:'/admin',
-    addroute:'/addroute'
+    addroute:'/addroute',
+    menu:'/menu'
     
 }

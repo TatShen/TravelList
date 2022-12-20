@@ -89,6 +89,7 @@ export class AccauntPage extends Component{
         ${this.state.user.map((item)=>{
           console.log(item.id);
           return `
+         
           <div class="accaunt-info">
           <div class="accaunt-avatar" style="background: url(${item.avatar}); background-size:cover; background-position:50%" ></div>
            

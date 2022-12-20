@@ -30,6 +30,8 @@ export class App extends core.Component {
 
         <tl-route path="${appRoutes.addRoute}" component="tl-addroutepage" title="add-route"></tl-route>
 
+        <tl-route path="${appRoutes.menu}" component="tl-menu" title="home"></tl-route>
+
         <tl-route path="/apartment" component="tl-listpage" title="map-page"></tl-route>
         <tl-route path="/eat" component="tl-listpage" title="map-page"></tl-route>
 

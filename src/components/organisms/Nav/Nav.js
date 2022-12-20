@@ -13,19 +13,16 @@ export class Nav extends Component{
         }
     }
     render(){
-       if (this.state.isSearch) {
-        return `<tl-search></tl-search>`
-    }
-       else{ return  `
+      return `
         <div class="nav">
-            <tl-link to="${appRoutes.map}">
+            <tl-link to="${appRoutes.menu}">
             <img class="search" src="/src/assets/icons/icon _search_.png">
             </tl-link>
             <tl-link to="${appRoutes.accaunt}">
             <img class="accaunt-r" src="/src/assets/icons/icon _person outline_.png">
             </tl-link> 
         </div>
-        `}
+        `
     }
 }
 
