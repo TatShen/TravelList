@@ -1,4 +1,8 @@
-
+@media screen  and (min-device-width:481px){
+	*{
+		visibility: hidden;
+	}
+}
 
 @media screen  and (max-device-width:480px){
 	*{
