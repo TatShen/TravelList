@@ -8,7 +8,7 @@ export class FormManager {
   }
 
   handleSubmit = (callback) => {
-    console.log('sss');
+   
     return (evt) => {
    
       evt.preventDefault();
@@ -18,7 +18,7 @@ export class FormManager {
         data[key] = value;
       });
       callback(data);
-      console.log('reg');
+      
     };
   };
 

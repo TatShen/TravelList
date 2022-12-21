@@ -23,14 +23,16 @@ export class App extends core.Component {
         <tl-route path="${appRoutes.admin}" component="tl-adminpage" title="map-page"></tl-route>
 
 
-        <tl-route path="${appRoutes.route}" component="tl-routepage" title="route-page"></tl-route>
+        <tl-route path="${appRoutes.route}" component="tl-routespage" title="route-page"></tl-route>
 
 
         <tl-route path="${appRoutes.accaunt}" component="tl-accauntpage" title="accaunt-page"></tl-route>
 
-        <tl-route path="${appRoutes.addRoute}" component="tl-addroutepage" title="add-route"></tl-route>
+        <tl-route path="${appRoutes.addroute}" component="tl-addroutepage" title="add-route"></tl-route>
 
         <tl-route path="${appRoutes.menu}" component="tl-menu" title="home"></tl-route>
+
+        <tl-route path="${appRoutes.route}/:id" component="tl-routedetail" title="route"></tl-route>
 
         <tl-route path="/apartment" component="tl-listpage" title="map-page"></tl-route>
         <tl-route path="/eat" component="tl-listpage" title="map-page"></tl-route>

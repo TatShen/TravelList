@@ -11,12 +11,12 @@ export class UserCard extends Component{
       };
 
     render(){
+        const {username, avatar} = this.props
         return`
-        <tl-link>
+        <tl-link to="">
             <div clas="user-card">
-                <img src="${avatar}">
+                <img src="${avatar}" class="user-photo">
                 <span class="user-name">${username}</span>
-            
             </div>
         </tl-link>
         `

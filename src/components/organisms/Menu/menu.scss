@@ -6,53 +6,103 @@
 }
 
 .list-routes{
-  width: 92vw;
-  height: auto;
+  width: 100vw;
+  max-height: 45vh;
   padding-top: 5vh;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
+
   margin-bottom: 5vh;
-  border-radius: 10px;
+ 
+  overflow: auto;
 }
 
 .list-users{
-  width: 92vw;
-  height: auto;
-  padding-top: 5vh;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
-  border-radius: 10px;
+  width: 100vw;
+  max-height: 48vh;
+  
+
+  margin-bottom: 5vh;
+ 
+  overflow: auto;
 
 }
 
 .search-input{
-  width: 70vw;
+  width: 75vw;
   height: 3vh;
   border-radius: 10px;
   background-color: transparent;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 5px;
+  margin-left: 2vw;
 }
 
-.search-button{
-  width: 15vw;
+.search-button, .search-one-button{
+  width: 17vw;
   height: 5vh;
   padding: 5px;
   border-radius: 10px;
   position: relative;
-
-  background-color: #5546ae;
+  background-color: rgba(0, 0, 0, 0.69);
   color: white;
   font-size: 18px;
  
 }
 
+.search-one-button{
+  background-color: rgba(0, 0, 0, 0.52);
+}
+
+
 .menu-list{
-  width: 95px;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8vw;
+    width: 95vw;
+    max-height: 45vh;
   
 }
 
-.menu-list{
-  width: 100%;
-  height: auto;
+
+
+.route-photo, .user-photo {
+  width: 25vw;
+  height: 15vh;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.route-card, .user-card{
+  width: 24vw;
+  height: 20vh;
+  display:inline-block;
+}
+
+.user-name, .route-span, .city-span, .menu{
+  text-decoration:none;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+    text-align: center;
+  letter-spacing: -0.5px;
+  color: rgba(0, 0, 0, 0.69);
+ 
+}
+
+.menu{
+  text-align: left;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+.city-span{
+  font-weight: 400;
+  font-size: 16px;
+  padding-top: 10px;
+  display: inline-block;
+}
+
+tl-link{
+  text-decoration: none;
 }

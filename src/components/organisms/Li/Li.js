@@ -36,23 +36,25 @@ export class Li extends Component{
     }
 
     static get observedAttributes(){
-        return ['title','classname',  'description', 'photo', 'info', 'reating', 'username', 'avatar', 'map'];
+        return ['title','classname',  'description', 'photo', 'info', 'reating', 'username', 'avatar', 'map', 'id'];
     };
 
     render(){
 
-        const {title, classname,  description, photo, info, reating, map, username, avatar } = this.props
-        console.log(avatar);
+        const {title, classname,  description, photo, info,  map, username, avatar, id } = this.props
+        console.log(id);
         return `
             ${this.state.isOpen ? `
-            <tl-card title="${title}" 
+            <tl-card 
+             title="${title}" 
              map="${map}"
              description="${description}" 
-             photo='${JSON.stringify(photo)}' 
-             reating='${JSON.stringify(reating)}' 
+             photo="${photo}"
+             id="${id}"
              info="${info}"
              username="${username}"
              avatar="${avatar}">
+             
              </tl-card>
             
             `:`<tl-button classname="${classname}" content="${title}" eventtype="open-li"></tl-button>`}

@@ -56,7 +56,7 @@ export class AccauntForm extends Component {
     createUser = (data) => {
         this.toggleIsLoading();
       
-        storageService.uploadPhoto(data.avatar)
+        storageService.uploadAvatar(data.avatar)
           .then((snapshot) => {
             storageService.getDownloadURL(snapshot.ref).then((url) => {
               usersService.creatUser( {
@@ -103,14 +103,14 @@ export class AccauntForm extends Component {
     
     return `
         <form>
-          <div class="file">
-              <input type="file" class="upload-file" hidden name="avatar">  </input>
-              <img class="uplouad" src="/src/assets/icons/x31 1 DSLR Camera.png">
-          </div>
+          <label  for="upload-avatar">
+              <input id="upload-avatar" type="file" class="upload-file" hidden name="avatar">  </input>
+              <img class="uplouad" src="/src/assets/icons/addfoto.png">
+          </lable>
           <input placeholder="Введите имя" class="input firstname" type="text" name="firstname">
           <input placeholder="Введите фамилия" class="input lastname" type="text" name="lastname">
           <input placeholder="Введите страну проживания" class="input country" type="text" name="country">
-          <input placeholder="Введите страну проживания" class="input country" type="text" name="uid" value="${this.state.uid}">
+          <input placeholder="Введите страну проживания" class="input " type="text" name="uid" value="${this.state.uid}" hidden>
           <textarea placeholder="Введите информацию о себе" class="textarea country" type="text" name="description"></textarea>
           
           <tl-button type="submit" content="Save" classname="save" eventtype="submit">

@@ -7,5 +7,6 @@ export const appEvents = {
   openLi:'open-li',
   next:'next',
   changeForm:'change-form',
-  sendUid: 'send-uid'
+  sendUid: 'send-uid',
+  edit:'edit'
 };
