@@ -9,7 +9,9 @@ export class Menu extends Component{
         super(),
         this.state={
             users: [],
-            routes:[]
+            routes:[],
+            searchRoute: '',
+            searchUser: ''
         }
     }
 
@@ -18,18 +20,36 @@ export class Menu extends Component{
             this.setState((state) => {
                 return{
                     ...state,
-                    users: data
+                    users: this.state.searchUser ? data.filter((item)=> item.firstname.toLowerCase() === this.state.searchUser):data
                 }
             })
         })
     }
 
+    getInputvalue=()=>{
+        const routes = document.getElementById('routes').value;
+        console.log(routes.toLowerCase());
+        const users = document.getElementById('users').value;
+       
+        this.setState((state)=>{
+            return{
+                ...state,
+                searchRoute:routes.toLowerCase(),
+                searchUser:users.toLowerCase()
+            }
+        })
+        
+        this.getRoutes()
+        this.getUsers()
+    }
+
     getRoutes = () => {
+        
         routesService.getRoutes().then((data) => {
             this.setState((state) => {
                 return{
                     ...state,
-                    routes: data
+                    routes: this.state.searchRoute ? data.filter((item)=> item.map.toLowerCase() === this.state.searchRoute):data
                 }
             })
         })
@@ -37,26 +57,32 @@ export class Menu extends Component{
 
 
     componentDidMount(){
-        this.getUsers()
-        this.getRoutes()
+        this.getInputvalue()
+        
+       
+        this.addEventListener('change', this.getInputvalue)
     }
 
     render(){
         console.log(this.state.users);
         console.log(this.state.routes);
+        console.log(this.state.searchRoute);
         return `
         <tl-nav></tl-nav>
        <div class="list-routes">
             <span class="menu">МАРШРУТЫ</span>
-            <input class="search-input"></input>
-            <tl-button classname="search-one" content="Поиск"></tl-button>
+            <input id="routes" class="search-input" ></input>
+            <tl-button classname="search-one" content="Поиск" type="submit"></tl-button>
             <div class="menu-list">
+        ${ !this.state.routes.length ? `<span>Маршрутов не найдено! </span>`: `${this.state.routes.map(({map, title, photo,id})=>{
             
-            ${this.state.routes.map(({map, title, photo,id})=>{
-                return`
-                <tl-route-card title="${title}"  photo='${photo}' city="${map}" id="${id}" class="route-card"></tl-route-card>`
-              })
-            .join('')}  
+            return`
+            <tl-route-card title="${title}"  photo='${photo}' city="${map}" id="${id}" class="route-card"></tl-route-card>`
+          })
+        .join('')}  `}
+
+
+            
             
             </div>
         </div>  
@@ -64,16 +90,16 @@ export class Menu extends Component{
 
         <div class="list-users">
             <span class="menu">ПУТЕШЕСТВЕННИКИ</span>
-            <input class="search-input"></input>
+            <input class="search-input" id="users"></input>
             <tl-button classname="search" content="Поиск"></tl-button>
             <div class="menu-list">
-            
-            ${this.state.users.map(({firstname, lastname, avatar, id})=>{
+            ${ !this.state.users.length ? `<span>Путешественников с таким именем не найдено!</span>`:  
+           ` ${this.state.users.map(({firstname, lastname, avatar, id})=>{
                 return`
                 <tl-user-card username="${firstname} ${lastname}"  avatar='${avatar}' class="user-card" id="${id}"></tl-user-card>`
               })
             .join('')}  
-            
+            `}
             </div>
         </div>    
         `

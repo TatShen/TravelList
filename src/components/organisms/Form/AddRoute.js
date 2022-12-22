@@ -103,7 +103,7 @@ export class AddRoute extends Component {
 
         <input placeholder="Введите название маршрута" class="add-input" type="text" name="title">
         
-        <input placeholder="Посященные города" class="add-input" type="text" name="map">
+        <input placeholder="Введите название населенного пункта" class="add-input" type="text" name="map">
 
         <textarea class="add-input" placeholder="Введите описание маршрута" name="description"></textarea>
 
