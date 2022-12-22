@@ -41,16 +41,16 @@ export class Card extends Component{
     }
 
     static get observedAttributes(){
-        return ['title', 'description', 'photo', 'info',  'username', 'avatar', 'map', 'id'];
+        return ['title', 'description', 'photo', 'info',  'username', 'avatar', 'map', 'id', 'vizibility', 'classname'];
     };
     
     render(){
-        const {title,   description,  info,  map, username, avatar, photo, id } = this.props
+        const {title,   description,  info,  map, username, avatar, photo, id, visibility, classname } = this.props
     
         return `
      
-        <div class="open-card">
-        <div class="header">
+        <div class="open-card ${classname} ">
+        <div class="header  ${visibility}" >
             <img src="/src/assets/icons/icon _arrow back outline_.png" type="button" class="card-back">
             <h2 class="card-h">${title}</h2>
             <img src="/src/assets/icons/icon _edit_.png" class="card-edit" >

@@ -3,4 +3,3 @@ export * from './Form'
 
 export * from './Li'
 export * from './Nav'
-export * from './Menu'

@@ -10,6 +10,7 @@ export const appRoutes = {
     admin:'/admin',
     addroute:'/addroute',
     menu:'/menu',
+    usersroutes:'/usersroutes'
     
     
 }
