@@ -122,7 +122,8 @@ export class AddRoute extends Component {
             <input  class="add-input" type="text" name="uid" value="${item.uid}"  hidden>
             </input>
             <input name="avatar" value="${item.avatar}" class="add-input" hidden></input>
-            
+            <input  class="add-input" type="text" name="userId" value="${item.id}"  hidden>
+            </input>
             `;
         })}
         

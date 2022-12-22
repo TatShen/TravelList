@@ -37,7 +37,8 @@ export class RouteDetail extends Component{
   }
     render(){
         console.log(this.props.id);
-        console.log(this.state.route);
+        console.log(this.state.route.userId);
+
         return `
         <tl-nav></tl-nav>
         <tl-card classname="card-R"
@@ -49,8 +50,8 @@ export class RouteDetail extends Component{
         id="${this.state.route.id}"
         info="${this.state.route.time}"
         username="${this.state.route.travelname}"
-        avatar="${this.state.route.avatar}">
-        
+        avatar="${this.state.route.avatar}"
+        userid="${this.state.route.userId}"
         </tl-card>
         `
     }

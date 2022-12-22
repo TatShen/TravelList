@@ -1,7 +1,8 @@
 import { appEvents } from "../../../constants/appEvents";
-import { Component } from "../../../core";
+import { Component, eventBus } from "../../../core";
 import { storageService } from "../../../services/Storage";
 import '../../atoms'
+import { appRoutes } from "../../../constants/appRoutes";
 
 export class Card extends Component{
     constructor(){
@@ -24,6 +25,7 @@ export class Card extends Component{
             }
         })
        }
+     
       
     }
 
@@ -41,12 +43,12 @@ export class Card extends Component{
     }
 
     static get observedAttributes(){
-        return ['title', 'description', 'photo', 'info',  'username', 'avatar', 'map', 'id', 'vizibility', 'classname'];
+        return ['title', 'description', 'photo', 'info',  'username', 'avatar', 'map', 'id', 'vizibility', 'classname', 'userid'];
     };
     
     render(){
-        const {title,   description,  info,  map, username, avatar, photo, id, visibility, classname } = this.props
-    
+        const {title,   description,  info,  map, username, avatar, photo, id, visibility, classname, userid } = this.props
+        console.log(photo);
         return `
      
         <div class="open-card ${classname} ">
@@ -66,9 +68,12 @@ export class Card extends Component{
         <div class="card-info">
             <tl-span classname="info" content="${info}"></tl-span>
         </div>
+        <tl-link to="${appRoutes.accaunt}/${userid}">
+            <div class="card-avatar" style="background: url(${avatar}); background-size:cover; background-position:50%" ></div>
+            <tl-span class="card-username" content="${username}"></tl-span>
+        </tl-link>  
        
-        <div class="card-avatar" style="background: url(${avatar}); background-size:cover; background-position:50%" ></div>
-        <tl-span class="card-username" content="${username}"></tl-span>
+        
         
     </div>`:`<div class ="addPhoto">
                 <label class="upload-file" for="upload-image">

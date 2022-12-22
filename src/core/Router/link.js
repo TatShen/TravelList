@@ -26,7 +26,12 @@ export class Link extends Component {
 
   render() {
     return `
-        <a href="${this.props.to}">
+    <style>
+    .it-link {
+      text-decoration: none;
+    }
+  </style>
+        <a href="${this.props.to}" class="it-link">
             <slot></slot>
         </a>
         `;

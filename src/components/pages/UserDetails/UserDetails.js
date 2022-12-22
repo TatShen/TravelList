@@ -91,7 +91,7 @@ export class UserDetails extends Component{
           
          <div class="routes-list">
             <span class="menu">Маршруты пользователя</span>
-            <div class="menu-list">
+            <div class="menu-list-u">
             ${this.state.routes.map((item)=>{
               console.log(item);
                return `<tl-route-card
@@ -99,6 +99,8 @@ export class UserDetails extends Component{
               city="${item.map}"
               photo="${item.photo}"
               id="${item.id}"
+              uid="${item.uid}"
+              
               ></tl-route-card>`
             })}
             </div>

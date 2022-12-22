@@ -7,7 +7,7 @@
 
 .list-routes{
   width: 100vw;
-  max-height: 45vh;
+  max-height: 65vh;
   padding-top: 5vh;
 
   margin-bottom: 5vh;
@@ -54,13 +54,13 @@
 
 
 .menu-list{
-    margin-top: 5vh;
+    
     margin-left: 5vw;
     display: flex;
     flex-wrap: wrap;
     gap: 8vw;
     width: 95vw;
-    max-height: 45vh;
+    max-height: 100vh;
   
 }
 
@@ -77,6 +77,7 @@
   width: 24vw;
   height: 20vh;
   display:inline-block;
+  margin-top: 10px;
 }
 
 .user-name, .route-span, .city-span, .menu{

@@ -72,12 +72,11 @@ export class AccauntPage extends Component {
 
         
         ${this.state.user.map((item) => {
+          console.log(item.avatar);
           return `
          
           <div class="accaunt-info">
-          <div class="accaunt-avatar" style="background: url(${
-            item.avatar
-          }); background-size:cover; background-position:50%" ></div>
+          <div class="accaunt-avatar" style="background: url(${item.avatar}); background-size:cover; background-position:50%"></div>
            
             
             <tl-span class="first-name"content ="${item.firstname} ${
@@ -100,9 +99,7 @@ export class AccauntPage extends Component {
                 )}'></tl-button>
               </tl-link>
               
-              <tl-link>
-                <tl-button content="Пройденные маршруты" classname="passed-routes"></tl-button>
-              </tl-link>
+             
              
               <tl-link to="${appRoutes.addroute}">
               <tl-button content="Добавить маршрут" classname="add-route"></tl-button>

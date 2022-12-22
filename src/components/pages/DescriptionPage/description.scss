@@ -112,7 +112,8 @@
   left: 12vw;
   width: 75vw;
   height: 5vh;
-  background: #eee4f8;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
   opacity: 0.4;
   border-radius: 40px;
   font-family: "SF Pro Text";
@@ -121,7 +122,7 @@
   font-size: 20px;
   text-align: center;
   letter-spacing: 0.3px;
-  color: #5647af;
+  z-index: 2;
  
 }
 
