@@ -6,7 +6,7 @@ export * from './RoutePage'
 export * from './AccauntPage'
 export * from './AdminPage'
 export * from './AddRoutePage'
-export * from './UserPage'
+
 export * from './RouteDetail'
 export * from './MenuPage'
 export * from './UserDetails'
