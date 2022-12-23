@@ -1,7 +1,7 @@
 import { Component } from "../../../core";
 import '../../../core'
 import { appRoutes } from "../../../constants/appRoutes";
-import './Nav.scss'
+import './nav.scss'
 import '../../malecules'
 
 
