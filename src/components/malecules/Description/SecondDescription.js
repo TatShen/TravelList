@@ -1,11 +1,8 @@
 import { Component } from "../../../core";
 
-
-export class SecondDescription extends Component{
-    
-    
-    render(){
-            return `
+export class SecondDescription extends Component {
+  render() {
+    return `
             <div class ="seconddescription">
             <tl-ellipse-buttom> </tl-ellipse-buttom>
             
@@ -19,8 +16,8 @@ export class SecondDescription extends Component{
 
             
             
-            `
-        }
-    };
+            `;
+  }
+}
 
-    customElements.define('tl-seconddescription',SecondDescription)
+customElements.define("tl-seconddescription", SecondDescription);

@@ -31,35 +31,33 @@ export class FormEnter extends Component {
     });
   };
 
-
-  signInWithGoogle=()=>{
-      console.log('google');
-      authService.signInWithGoogle().then((result)=>{
+  signInWithGoogle = () => {
+    console.log("google");
+    authService
+      .signInWithGoogle()
+      .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        this.dispatch(appEvents.changeRoute, { target:appRoutes.accaunt });
-      }).catch((error)=>{
+        this.dispatch(appEvents.changeRoute, { target: appRoutes.accaunt });
+      })
+      .catch((error) => {
         this.setState((state) => {
           return {
             ...state,
             error: error.message,
           };
         });
-      })
-    }
-   
-  
-
+      });
+  };
 
   signIn = (data) => {
-   
     this.toggleisLoading();
     authService
       .signIn(data.email, data.password)
       .then((user) => {
         authService.user = user;
-        this.dispatch(appEvents.changeRoute, { target:appRoutes.accaunt });
+        this.dispatch(appEvents.changeRoute, { target: appRoutes.accaunt });
       })
       .catch((error) => {
         this.setState((state) => {
@@ -75,16 +73,14 @@ export class FormEnter extends Component {
   };
 
   validateForm = (evt) => {
-    
-      this.form.init(this.querySelector(".registration-form"), {
-        email: [
-          Validator.email("Email is not valid"),
-          Validator.required("The field should not be empty"),
-        ],
-        password: [Validator.required("The field should not be empty")],
-      });
-    }
-  ;
+    this.form.init(this.querySelector(".registration-form"), {
+      email: [
+        Validator.email("Email is not valid"),
+        Validator.required("The field should not be empty"),
+      ],
+      password: [Validator.required("The field should not be empty")],
+    });
+  };
 
   validate = (evt) => {
     this.setState((state) => {
@@ -100,17 +96,16 @@ export class FormEnter extends Component {
 
   onClick = (evt) => {
     if (evt.target.closest("tl-input")) {
-      this.validateForm()
+      this.validateForm();
     }
-    if (evt.target.closest(".enter-with-google-button")){
-      this.signInWithGoogle()
-    } 
-  }
-
+    if (evt.target.closest(".enter-with-google-button")) {
+      this.signInWithGoogle();
+    }
+  };
 
   componentDidMount() {
     this.addEventListener("click", this.onClick);
-   
+
     this.addEventListener(appEvents.validateControls, this.validate);
     this.addEventListener("submit", this.form.handleSubmit(this.signIn));
   }
@@ -155,4 +150,3 @@ export class FormEnter extends Component {
 }
 
 customElements.define("tl-enter-form", FormEnter);
-

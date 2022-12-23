@@ -1,71 +1,74 @@
-import {Component} from '../../../core'
-import './menu.scss'
-import {routesService, usersService} from '../../../services'
-import '../../malecules'
+import { Component } from "../../../core";
+import "./menu.scss";
+import { routesService, usersService } from "../../../services";
+import "../../malecules";
 
+export class Menu extends Component {
+  constructor() {
+    super(),
+      (this.state = {
+        users: [],
+        routes: [],
+        searchRoute: "",
+        searchUser: "",
+      });
+  }
 
-export class Menu extends Component{
-    constructor(){
-        super(),
-        this.state={
-            users: [],
-            routes:[],
-            searchRoute: '',
-            searchUser: ''
-        }
-    }
+  getUsers = () => {
+    usersService.getUsers().then((data) => {
+      this.setState((state) => {
+        return {
+          ...state,
+          users: this.state.searchUser
+            ? data.filter(
+                (item) => item.firstname.toLowerCase() === this.state.searchUser
+              )
+            : data,
+        };
+      });
+    });
+  };
 
-    getUsers = () => {
-        usersService.getUsers().then((data) => {
-            this.setState((state) => {
-                return{
-                    ...state,
-                    users: this.state.searchUser ? data.filter((item)=> item.firstname.toLowerCase() === this.state.searchUser):data
-                }
-            })
-        })
-    }
+  getInputvalue = () => {
+    const routes = document.getElementById("routes").value;
 
-    getInputvalue=()=>{
-        const routes = document.getElementById('routes').value;
-       
-        const users = document.getElementById('users').value;
-       
-        this.setState((state)=>{
-            return{
-                ...state,
-                searchRoute:routes.toLowerCase(),
-                searchUser:users.toLowerCase()
-            }
-        })
-        
-        this.getRoutes()
-        this.getUsers()
-    }
+    const users = document.getElementById("users").value;
 
-    getRoutes = () => {
-        
-        routesService.getRoutes().then((data) => {
-            this.setState((state) => {
-                return{
-                    ...state,
-                    routes: this.state.searchRoute ? data.filter((item)=> item.map.toLowerCase() === this.state.searchRoute):data
-                }
-            })
-        })
-    }
+    this.setState((state) => {
+      return {
+        ...state,
+        searchRoute: routes.toLowerCase(),
+        searchUser: users.toLowerCase(),
+      };
+    });
 
+    this.getRoutes();
+    this.getUsers();
+  };
 
-    componentDidMount(){
-        this.getInputvalue()
-        
-       
-        this.addEventListener('change', this.getInputvalue)
-    }
+  getRoutes = () => {
+    routesService.getRoutes().then((data) => {
+      this.setState((state) => {
+        return {
+          ...state,
+          routes: this.state.searchRoute
+            ? data.filter(
+                (item) => item.map.toLowerCase() === this.state.searchRoute
+              )
+            : data,
+        };
+      });
+    });
+  };
 
-    render(){
-        
-        return `
+  componentDidMount() {
+    this.getInputvalue();
+
+    this.addEventListener("change", this.getInputvalue);
+  }
+
+  render() {
+    return `
         <tl-nav></tl-nav>
         <div id="menu">
         <div class="list-routes">
@@ -73,12 +76,16 @@ export class Menu extends Component{
             <input id="routes" class="search-input" placeholder="Введите название города"></input>
             <tl-button classname="search-one" content="Поиск" type="submit"></tl-button>
             <div class="menu-list">
-        ${ !this.state.routes.length ? `<span class="menu-er">Маршрутов не найдено! </span>`: `${this.state.routes.map(({map, title, photo,id})=>{
-            
-            return`
-            <tl-route-card title="${title}"  photo='${photo}' city="${map}" id="${id}" class="route-card"></tl-route-card>`
-          })
-        .join('')}  `}
+        ${
+          !this.state.routes.length
+            ? `<span class="menu-er">Маршрутов не найдено! </span>`
+            : `${this.state.routes
+                .map(({ map, title, photo, id }) => {
+                  return `
+            <tl-route-card title="${title}"  photo='${photo}' city="${map}" id="${id}" class="route-card"></tl-route-card>`;
+                })
+                .join("")}  `
+        }
 
 
             
@@ -92,20 +99,23 @@ export class Menu extends Component{
             <input class="search-input" id="users" placeholder="Введите имя путешественника"></input>
             <tl-button classname="search" content="Поиск"></tl-button>
             <div class="menu-list-u">
-            ${ !this.state.users.length ? `<span class="menu-er">Путешественников с таким именем не найдено!</span>`:  
-           ` ${this.state.users.map(({firstname, lastname, avatar, id})=>{
-                return`
-                <tl-user-card username="${firstname} ${lastname}"  avatar='${avatar}' class="user-card" id="${id}"></tl-user-card>`
-              })
-            .join('')}  
-            `}
+            ${
+              !this.state.users.length
+                ? `<span class="menu-er">Путешественников с таким именем не найдено!</span>`
+                : ` ${this.state.users
+                    .map(({ firstname, lastname, avatar, id }) => {
+                      return `
+                <tl-user-card username="${firstname} ${lastname}"  avatar='${avatar}' class="user-card" id="${id}"></tl-user-card>`;
+                    })
+                    .join("")}  
+            `
+            }
             </div>
         </div>    
         </div>
        
-        `
-        
-    }
+        `;
+  }
 }
 
-customElements.define('tl-menu', Menu)
+customElements.define("tl-menu", Menu);

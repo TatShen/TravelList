@@ -1,73 +1,60 @@
 import { Component } from "../../../core";
-import '../../organisms'
-import '../../malecules'
+import "../../organisms";
+import "../../malecules";
 import { appRoutes } from "../../../constants/appRoutes";
 import { usersService } from "../../../services/UserService";
 import { appEvents } from "../../../constants/appEvents";
 import { routesService } from "../../../services";
-import './userdetails.scss'
+import "./userdetails.scss";
 
-export class UserDetails extends Component{
-    constructor(){
-        super(),
-        this.state={
-            user:[],
-            routes:[]
-        }
-    }
+export class UserDetails extends Component {
+  constructor() {
+    super(),
+      (this.state = {
+        user: [],
+        routes: [],
+      });
+  }
 
-    getUser() {
-        
-        usersService
-          .getUser(this.props.id)
-          .then((data) => {
-            this.setState((state) => {
-              return {
-                ...state,
-                user: data,
-              };
-            });
-          })
-          .finally(() => {
-           
-          });
-      }
+  getUser() {
+    usersService
+      .getUser(this.props.id)
+      .then((data) => {
+        this.setState((state) => {
+          return {
+            ...state,
+            user: data,
+          };
+        });
+      })
+      .finally(() => {});
+  }
 
-      getRoutes = () => {
-        routesService
-          .getRoutes()
-          .then((data) => {
-            this.setState((state) => {
-              return {
-                ...state,
-                routes: data.filter((item) => item.uid === this.state.user.uid),
-              };
-            });
-           
-          })
-          .finally(() => {
-           
-          });
-      };
-    
+  getRoutes = () => {
+    routesService
+      .getRoutes()
+      .then((data) => {
+        this.setState((state) => {
+          return {
+            ...state,
+            routes: data.filter((item) => item.uid === this.state.user.uid),
+          };
+        });
+      })
+      .finally(() => {});
+  };
 
-    
-   
   static get observedAttributes() {
     return ["id"];
   }
-    
-  componentDidMount(){
-    this.getUser()
-    this.getRoutes()
+
+  componentDidMount() {
+    this.getUser();
+    this.getRoutes();
   }
 
-
-
-
-    render(){
-        
-        return`
+  render() {
+    return `
         <tl-nav></tl-nav>
         <div class="accaunt-info">
         <div class="accaunt-avatar" style="background: url(${
@@ -76,12 +63,14 @@ export class UserDetails extends Component{
          
           
           <tl-span class="first-name"content ="${this.state.user.firstname} ${
-            this.state.user.lastname
-        }"></tl-span>
+      this.state.user.lastname
+    }"></tl-span>
 
         <div class="country">
           <img src="/src/assets/icons/map.png" class="icon-country">
-          <tl-span class="country" content="${this.state.user.country}"></tl-span>
+          <tl-span class="country" content="${
+            this.state.user.country
+          }"></tl-span>
         </div>
           
           <tl-span class="description" content="${
@@ -92,21 +81,20 @@ export class UserDetails extends Component{
          <div class="routes-list">
             <span class="menu-r">Маршруты пользователя</span>
             <div class="menu-list-us">
-            ${this.state.routes.map((item)=>{
-              
-               return `<tl-route-card
+            ${this.state.routes.map((item) => {
+              return `<tl-route-card
               title="${item.title}"
               city="${item.map}"
               photo="${item.photo}"
               id="${item.id}"
               uid="${item.uid}"
               
-              ></tl-route-card>`
+              ></tl-route-card>`;
             })}
             </div>
          </div>
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('tl-user-details', UserDetails)
+customElements.define("tl-user-details", UserDetails);

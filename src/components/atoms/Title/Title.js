@@ -1,5 +1,5 @@
 import { Component } from "../../../core";
-import './title.scss'
+import "./title.scss";
 
 export class Title extends Component {
   constructor() {

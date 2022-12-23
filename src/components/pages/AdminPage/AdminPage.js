@@ -19,11 +19,7 @@ export class AdminPage extends Component {
 
   render() {
     return `
-        
         <tl-accaunt-form></tl-accaunt-form>
-       
-          
-        
         `;
   }
 }

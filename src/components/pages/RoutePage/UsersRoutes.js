@@ -9,7 +9,7 @@ export class UsersRoutes extends Component {
     super();
     this.state = {
       routes: [],
-     
+
       isOpenCard: false,
     };
   }
@@ -23,9 +23,9 @@ export class UsersRoutes extends Component {
     });
   }
 
- getUid=()=>{
-    console.log('sdds');
- }
+  getUid = () => {
+    console.log("sdds");
+  };
   getRoutes = () => {
     routesService
       .getRoutes()
@@ -36,7 +36,6 @@ export class UsersRoutes extends Component {
             routes: data.filter((item) => item.uid === this.props.uid),
           };
         });
-        
       })
       .finally(() => {
         this.toggleIsLoading();
@@ -44,7 +43,7 @@ export class UsersRoutes extends Component {
   };
 
   componentDidMount() {
-    this.addEventListener('uid', this.getUid)
+    this.addEventListener("uid", this.getUid);
     this.getRoutes();
   }
 

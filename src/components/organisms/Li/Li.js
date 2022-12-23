@@ -1,50 +1,71 @@
 import { appEvents } from "../../../constants/appEvents";
 import { Component } from "../../../core";
-import '../../atoms'
-import '../../malecules'
+import "../../atoms";
+import "../../malecules";
 
-export class Li extends Component{
-    constructor(){
-        super(),
-        this.state={
-            isOpen:false
-        }
-    };
+export class Li extends Component {
+  constructor() {
+    super(),
+      (this.state = {
+        isOpen: false,
+      });
+  }
 
-    openLi = () => {
-        this.setState((state) => {
-            return{
-                ...state,
-                isOpen:true
-            }
-        })
-    }
+  openLi = () => {
+    this.setState((state) => {
+      return {
+        ...state,
+        isOpen: true,
+      };
+    });
+  };
 
-    closeLi= () =>{
-        
-        this.setState((state)=>{
-            return{
-                ...state,
-                isOpen:false
-            }
-        })
-    }
+  closeLi = () => {
+    this.setState((state) => {
+      return {
+        ...state,
+        isOpen: false,
+      };
+    });
+  };
 
-    componentDidMount(){
-        this.addEventListener(appEvents.openLi, this.openLi)
-        this.addEventListener(appEvents.back, this.closeLi)
-    }
+  componentDidMount() {
+    this.addEventListener(appEvents.openLi, this.openLi);
+    this.addEventListener(appEvents.back, this.closeLi);
+  }
 
-    static get observedAttributes(){
-        return ['title','classname',  'description', 'photo', 'info', 'reating', 'username', 'avatar', 'map', 'id'];
-    };
+  static get observedAttributes() {
+    return [
+      "title",
+      "classname",
+      "description",
+      "photo",
+      "info",
+      "reating",
+      "username",
+      "avatar",
+      "map",
+      "id",
+    ];
+  }
 
-    render(){
+  render() {
+    const {
+      title,
+      classname,
+      description,
+      photo,
+      info,
+      map,
+      username,
+      avatar,
+      id,
+    } = this.props;
 
-        const {title, classname,  description, photo, info,  map, username, avatar, id } = this.props
-        
-        return `
-            ${this.state.isOpen ? `
+    return `
+            ${
+              this.state.isOpen
+                ? `
             <tl-card 
              title="${title}" 
              map="${map}"
@@ -57,10 +78,12 @@ export class Li extends Component{
              
              </tl-card>
             
-            `:`<tl-button classname="${classname}" content="${title}" eventtype="open-li"></tl-button>`}
+            `
+                : `<tl-button classname="${classname}" content="${title}" eventtype="open-li"></tl-button>`
+            }
         
-        `
-    }
+        `;
+  }
 }
 
-customElements.define('tl-li', Li)
+customElements.define("tl-li", Li);

@@ -1,12 +1,9 @@
 import { Component } from "../../../core";
-import { appRoutes } from "../../../constants/appRoutes"
+import { appRoutes } from "../../../constants/appRoutes";
 
-
-export class ThirdDescription extends Component{
-    
-    
-    render(){
-            return `
+export class ThirdDescription extends Component {
+  render() {
+    return `
             <div class ="thirddescription">
             <tl-ellipse-buttom> </tl-ellipse-buttom>
             
@@ -19,8 +16,8 @@ export class ThirdDescription extends Component{
                  
             </div>
             
-            `
-        }
-    };
+            `;
+  }
+}
 
-    customElements.define('tl-thirddescription',ThirdDescription)
+customElements.define("tl-thirddescription", ThirdDescription);

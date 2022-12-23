@@ -1,12 +1,12 @@
 import "./card.scss";
 import "../../atoms";
-import {appRoutes} from '../../../constants/appRoutes'
+import { appRoutes } from "../../../constants/appRoutes";
 
 import { Component } from "../../../core";
 
 export class RouteCard extends Component {
   static get observedAttributes() {
-    return ["title", "city", "photo", 'id'];
+    return ["title", "city", "photo", "id"];
   }
 
   render() {

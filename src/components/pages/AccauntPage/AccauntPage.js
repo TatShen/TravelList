@@ -72,47 +72,31 @@ export class AccauntPage extends Component {
 
         
         ${this.state.user.map((item) => {
-        
           return `
          
           <div class="accaunt-info">
-          <div class="accaunt-avatar" style="background: url(${item.avatar}); background-size:cover; background-position:50%"></div>
-           
-            
+            <div class="accaunt-avatar" style="background: url(${
+              item.avatar
+            }); background-size:cover; background-position:50%"></div>
             <tl-span class="first-name"content ="${item.firstname} ${
-            item.lastname
-          }"></tl-span>
-
-          <div class="country">
-            <img src="/src/assets/icons/map.png" class="icon-country">
-            <tl-span class="country" content="${item.country}"></tl-span>
-          </div>
-            
-            <tl-span class="description" content="${
-              item.description
+              item.lastname
             }"></tl-span>
-           
-            
-              <tl-link to="${appRoutes.route}">
-                <tl-button content="Мои маршруты" classname="my-routes" items='${JSON.stringify(
-                  this.state.routes
-                )}'></tl-button>
-              </tl-link>
-              
-             
-             
-              <tl-link to="${appRoutes.addroute}">
+            <div class="country">
+              <img src="/src/assets/icons/map.png" class="icon-country">
+              <tl-span class="country" content="${item.country}"></tl-span>
+            </div>
+            <tl-span class="description" content="${item.description}"></tl-span>
+            <tl-link to="${appRoutes.route}">
+              <tl-button content="Мои маршруты" classname="my-routes" items='${JSON.stringify(
+                    this.state.routes
+                  )}'></tl-button>
+            </tl-link>
+            <tl-link to="${appRoutes.addroute}">
               <tl-button content="Добавить маршрут" classname="add-route"></tl-button>
-                         
-                
-              </tl-link>
-              <tl-link to="${appRoutes.admin}/${item.id}">
-              <tl-button content="Редактировать профиль" classname="add-route"></tl-button>
-                         
-                
-              </tl-link>
-             
-
+            </tl-link>
+            <tl-link to="${appRoutes.admin}/${item.id}">
+              <tl-button content="Редактировать профиль" classname="add-route"></tl-button> 
+            </tl-link>
           </div>  
           `;
         })} `;

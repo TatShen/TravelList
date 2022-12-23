@@ -31,7 +31,7 @@ export class FormRegister extends Component {
   };
 
   registerUser = (data) => {
-   console.log('reg');
+    console.log("reg");
     this.toggleisLoading();
     authService
       .signUp(data.email, data.password)
@@ -39,10 +39,10 @@ export class FormRegister extends Component {
         authService.user = user;
         authService.init().then((uid) => {
           console.log(uid);
-          eventBus.emit(appEvents.sendInfo, {userUid:uid})
-          console.log('ccc');
-         })
-        this.dispatch(appEvents.changeRoute, { target:appRoutes.admin });
+          eventBus.emit(appEvents.sendInfo, { userUid: uid });
+          console.log("ccc");
+        });
+        this.dispatch(appEvents.changeRoute, { target: appRoutes.admin });
       })
       .catch((error) => {
         this.setState((state) => {
@@ -60,7 +60,6 @@ export class FormRegister extends Component {
   validateForm = (evt) => {
     if (evt.target.closest("tl-input")) {
       this.form.init(this.querySelector(".registration-form"), {
-       
         email: [
           Validator.email("Email is not valid"),
           Validator.required("The field should not be empty"),
@@ -85,7 +84,10 @@ export class FormRegister extends Component {
   componentDidMount() {
     this.addEventListener("click", this.validateForm);
     this.addEventListener(appEvents.validateControls, this.validate);
-    window.addEventListener("submit", this.form.handleSubmit(this.registerUser));
+    window.addEventListener(
+      "submit",
+      this.form.handleSubmit(this.registerUser)
+    );
   }
 
   render() {
@@ -124,5 +126,3 @@ export class FormRegister extends Component {
 }
 
 customElements.define("tl-registration-form", FormRegister);
-
-

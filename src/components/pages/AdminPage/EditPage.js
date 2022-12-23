@@ -26,9 +26,6 @@ export class EditPage extends Component {
     return `
         <tl-nav></tl-nav>
         <tl-edit-form id="${this.props.id}"></tl-edit-form>
-       
-          
-        
         `;
   }
 }

@@ -1,44 +1,39 @@
 import { Component } from "../../../core";
-import '../../organisms'
-import '../../malecules'
+import "../../organisms";
+import "../../malecules";
 import { routesService } from "../../../services";
-import './detailsRoute.scss'
-export class RouteDetail extends Component{
-    constructor(){
-        super();
-        this.state={
-            route:[]
-        }
-    }
+import "./detailsRoute.scss";
+export class RouteDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      route: [],
+    };
+  }
 
-    getRoute() {
-        
-        routesService
-          .getRoute(this.props.id)
-          .then((data) => {
-            this.setState((state) => {
-              return {
-                ...state,
-                route: data,
-              };
-            });
-          })
-          .finally(() => {
-           
-          });
-      }
-    
+  getRoute() {
+    routesService
+      .getRoute(this.props.id)
+      .then((data) => {
+        this.setState((state) => {
+          return {
+            ...state,
+            route: data,
+          };
+        });
+      })
+      .finally(() => {});
+  }
+
   static get observedAttributes() {
     return ["id"];
   }
-    
-  componentDidMount(){
-    this.getRoute()
-  }
-    render(){
-        
 
-        return `
+  componentDidMount() {
+    this.getRoute();
+  }
+  render() {
+    return `
         <tl-nav></tl-nav>
         <tl-card classname="card-R"
         visibility="hidden"
@@ -52,9 +47,8 @@ export class RouteDetail extends Component{
         avatar="${this.state.route.avatar}"
         userid="${this.state.route.userId}"
         </tl-card>
-        `
-    }
+        `;
+  }
 }
 
-
-customElements.define('tl-routedetail', RouteDetail)
+customElements.define("tl-routedetail", RouteDetail);
