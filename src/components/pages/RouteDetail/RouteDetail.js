@@ -36,8 +36,7 @@ export class RouteDetail extends Component{
     this.getRoute()
   }
     render(){
-        console.log(this.props.id);
-        console.log(this.state.route.userId);
+        
 
         return `
         <tl-nav></tl-nav>

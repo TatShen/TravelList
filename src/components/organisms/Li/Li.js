@@ -42,7 +42,7 @@ export class Li extends Component{
     render(){
 
         const {title, classname,  description, photo, info,  map, username, avatar, id } = this.props
-        console.log(id);
+        
         return `
             ${this.state.isOpen ? `
             <tl-card 

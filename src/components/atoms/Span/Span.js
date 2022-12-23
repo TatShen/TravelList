@@ -8,8 +8,7 @@ export class Span extends Component{
     componentDidMount(){
         this.addEventListener('click',() => {
             this.dispatch(this.props.eventtype, { target: this.props.to })
-            console.log(this.props.eventtype);
-            console.log(this.props.to);
+           
         })
     };
 

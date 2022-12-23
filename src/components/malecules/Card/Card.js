@@ -48,7 +48,7 @@ export class Card extends Component{
     
     render(){
         const {title,   description,  info,  map, username, avatar, photo, id, visibility, classname, userid } = this.props
-        console.log(photo);
+       
         return `
      
         <div class="open-card ${classname} ">

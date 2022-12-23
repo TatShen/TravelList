@@ -80,7 +80,7 @@ export class UserDetails extends Component{
         }"></tl-span>
 
         <div class="country">
-          <img src="/src/assets/icons/pin outline_.png" class="icon-country">
+          <img src="/src/assets/icons/map.png" class="icon-country">
           <tl-span class="country" content="${this.state.user.country}"></tl-span>
         </div>
           
@@ -90,8 +90,8 @@ export class UserDetails extends Component{
          
           
          <div class="routes-list">
-            <span class="menu">Маршруты пользователя</span>
-            <div class="menu-list-u">
+            <span class="menu-r">Маршруты пользователя</span>
+            <div class="menu-list-us">
             ${this.state.routes.map((item)=>{
               console.log(item);
                return `<tl-route-card

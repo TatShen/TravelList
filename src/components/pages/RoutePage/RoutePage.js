@@ -25,7 +25,7 @@ export class RoutePage extends Component {
 
   getUid = () => {
     authService.init().then((user) => {
-      console.log(user.uid);
+  
       this.setState((state) => {
         return {
           ...state,

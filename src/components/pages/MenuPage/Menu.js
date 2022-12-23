@@ -28,7 +28,7 @@ export class Menu extends Component{
 
     getInputvalue=()=>{
         const routes = document.getElementById('routes').value;
-        console.log(routes.toLowerCase());
+       
         const users = document.getElementById('users').value;
        
         this.setState((state)=>{
@@ -64,9 +64,7 @@ export class Menu extends Component{
     }
 
     render(){
-        console.log(this.state.users);
-        console.log(this.state.routes);
-        console.log(this.state.searchRoute);
+        
         return `
         <tl-nav></tl-nav>
         <div id="menu">
