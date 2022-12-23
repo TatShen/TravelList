@@ -92,7 +92,7 @@ export class AccauntForm extends Component {
 
   render() {
    
-   console.log(this.state.user);
+   
     
     return `
         <form>
