@@ -106,6 +106,11 @@ export class AccauntPage extends Component {
                          
                 
               </tl-link>
+              <tl-link to="${appRoutes.admin}">
+              <tl-button content="Редактировать профиль" classname="add-route"></tl-button>
+                         
+                
+              </tl-link>
              
 
           </div>  
