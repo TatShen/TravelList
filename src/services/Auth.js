@@ -4,6 +4,8 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup
   } from "firebase/auth";
 
   import { cloudService } from "./Cloud";
@@ -12,6 +14,7 @@ import {
     constructor() {
       this.auth = getAuth(cloudService.app);
       this._user = null;
+      this.provider = new GoogleAuthProvider()
     }
   
     set user(user) {
@@ -48,7 +51,9 @@ import {
       return signInWithEmailAndPassword(this.auth, email, password);
     }
 
-    
+    signInWithGoogle(){
+      return signInWithPopup(this.auth, this.provider)
+    }
   }
   
   export const authService = new AuthService();

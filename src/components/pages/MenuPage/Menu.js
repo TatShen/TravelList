@@ -69,12 +69,13 @@ export class Menu extends Component{
         console.log(this.state.searchRoute);
         return `
         <tl-nav></tl-nav>
-       <div class="list-routes">
+        <div id="menu">
+        <div class="list-routes">
             <span class="menu">МАРШРУТЫ</span>
-            <input id="routes" class="search-input" ></input>
+            <input id="routes" class="search-input" placeholder="Введите название города"></input>
             <tl-button classname="search-one" content="Поиск" type="submit"></tl-button>
             <div class="menu-list">
-        ${ !this.state.routes.length ? `<span>Маршрутов не найдено! </span>`: `${this.state.routes.map(({map, title, photo,id})=>{
+        ${ !this.state.routes.length ? `<span class="menu-er">Маршрутов не найдено! </span>`: `${this.state.routes.map(({map, title, photo,id})=>{
             
             return`
             <tl-route-card title="${title}"  photo='${photo}' city="${map}" id="${id}" class="route-card"></tl-route-card>`
@@ -89,11 +90,11 @@ export class Menu extends Component{
        
 
         <div class="list-users">
-            <span class="menu">ПУТЕШЕСТВЕННИКИ</span>
-            <input class="search-input" id="users"></input>
+            <span class="menu-u">ПУТЕШЕСТВЕННИКИ</span>
+            <input class="search-input" id="users" placeholder="Введите имя путешественника"></input>
             <tl-button classname="search" content="Поиск"></tl-button>
-            <div class="menu-list">
-            ${ !this.state.users.length ? `<span>Путешественников с таким именем не найдено!</span>`:  
+            <div class="menu-list-u">
+            ${ !this.state.users.length ? `<span class="menu-er">Путешественников с таким именем не найдено!</span>`:  
            ` ${this.state.users.map(({firstname, lastname, avatar, id})=>{
                 return`
                 <tl-user-card username="${firstname} ${lastname}"  avatar='${avatar}' class="user-card" id="${id}"></tl-user-card>`
@@ -102,6 +103,8 @@ export class Menu extends Component{
             `}
             </div>
         </div>    
+        </div>
+       
         `
         
     }

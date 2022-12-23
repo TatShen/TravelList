@@ -59,7 +59,7 @@ export class FormPage extends Component{
               `
     }
     
-    <tl-button classname="let-pass" content="Пропустить этот шаг" eventtype="change-route" to="/geopage"></tl-button>
+   
     `
 }
 }

@@ -111,7 +111,7 @@ export class AddRoute extends Component {
 
         <label class="upload-file" for="upload-image">
             <input id="upload-image" type="file" class="add-photo" hidden name="photo" multiple >  </input>
-            <img src="/src/assets/icons/addfoto.png" class="addphoto">
+            <img src="/src/assets/icons/addfoto.png" class="addphoto" alt="загрузка фото" title="Закрузить фото">
         </div>
         
         
