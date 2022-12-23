@@ -25,7 +25,7 @@ export class EditPage extends Component {
   render() {
     return `
         <tl-nav></tl-nav>
-        <tl-accaunt-form id="${this.props.id}"></tl-accaunt-form>
+        <tl-edit-form id="${this.props.id}"></tl-edit-form>
        
           
         
