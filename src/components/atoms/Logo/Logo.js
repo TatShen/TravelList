@@ -8,7 +8,7 @@ export class Logo extends Component{
     render(){
         return `
         <div class="logo-border">
-            <img class="logo" src="src/assets/svg/hot-air-balloon-svgrepo-com.svg">
+            <img class="logo" src="/src/assets/icons/hot-air-balloon-svgrepo-com 1.png">
         </div>
         `
     }

@@ -6,7 +6,7 @@ export class EllipseButtom extends Component{
     render(){
        
         return `
-        <img class="ellipse" src="src/assets/svg/Ellipse 3944.svg">
+        <img class="ellipse" src="/src/assets/icons/Ellipse 3944.png">
         `
     }
 }
