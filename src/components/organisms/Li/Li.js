@@ -21,7 +21,7 @@ export class Li extends Component{
     }
 
     closeLi= () =>{
-        console.log('back');
+        
         this.setState((state)=>{
             return{
                 ...state,

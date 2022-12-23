@@ -66,7 +66,7 @@ export class UserDetails extends Component{
 
 
     render(){
-        console.log(this.state.routes);
+        
         return`
         <tl-nav></tl-nav>
         <div class="accaunt-info">
@@ -93,7 +93,7 @@ export class UserDetails extends Component{
             <span class="menu-r">Маршруты пользователя</span>
             <div class="menu-list-us">
             ${this.state.routes.map((item)=>{
-              console.log(item);
+              
                return `<tl-route-card
               title="${item.title}"
               city="${item.map}"
