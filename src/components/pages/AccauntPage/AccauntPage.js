@@ -84,7 +84,7 @@ export class AccauntPage extends Component {
           }"></tl-span>
 
           <div class="country">
-            <img src="/src/assets/icons/pin outline_.png" class="icon-country">
+            <img src="/src/assets/icons/map.png" class="icon-country">
             <tl-span class="country" content="${item.country}"></tl-span>
           </div>
             

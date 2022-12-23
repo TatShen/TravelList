@@ -16,10 +16,10 @@ export class Nav extends Component{
       return `
         <div class="nav">
             <tl-link to="${appRoutes.menu}">
-            <img class="search" src="/src/assets/icons/icon _search_.png">
+            <img class="search" src="/src/assets/icons/home.png">
             </tl-link>
             <tl-link to="${appRoutes.accaunt}">
-            <img class="accaunt-r" src="/src/assets/icons/icon _person outline_.png">
+            <img class="accaunt-r" src="/src/assets/icons/accaunt.png">
             </tl-link> 
         </div>
         `

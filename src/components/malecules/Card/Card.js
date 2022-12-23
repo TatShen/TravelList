@@ -53,9 +53,9 @@ export class Card extends Component{
      
         <div class="open-card ${classname} ">
         <div class="header  ${visibility}" >
-            <img src="/src/assets/icons/icon _arrow back outline_.png" type="button" class="card-back">
+            <img src="/src/assets/icons/back.png" type="button" class="card-back">
             <h2 class="card-h">${title}</h2>
-            <img src="/src/assets/icons/icon _edit_.png" class="card-edit" >
+            <img src="/src/assets/icons/edit.png" class="card-edit" >
         </div>
 
         ${!this.state.isEdit ? `<div class="card-photo" style="background: url(${photo}); background-size:cover; background-position:50%" ></div>
